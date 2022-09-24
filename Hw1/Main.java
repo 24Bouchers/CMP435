@@ -44,10 +44,14 @@ public class Main {
         magicItem = commonItem.trim().toUpperCase().replaceAll(" ", "");
 
         int magicLength = magicItem.length();
+        if (magicLength == 0){
+
+        }else{
         Arrayify(commonItem, magicItem, magicLength);
+        }
       }
     }
-
+  }
   }
 
-}
+
