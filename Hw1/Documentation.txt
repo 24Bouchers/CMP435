@@ -1,0 +1,16 @@
+Completed
+
+WIP 
+create nodes 
+
+
+IDEAS
+Count the ammount of letters in each line,
+then only check for the letters in that for palindrominess
+Once completed, go to the new line 
+
+OTHER
+I couldn't get C++ to run on my computer after trying for like a week. 
+Had to abaondon ship tonight a swap to java.
+I'll talk about it more during my write up
+
