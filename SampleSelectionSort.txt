@@ -1,0 +1,12 @@
+n = A.length
+for (i: = 0 to n - 2){
+    smallPos: = i
+    for j: = (i + 1 to n - 1){
+        if A[j] < A[smallPos]{
+            smallPos: = j
+        }end if 
+    }end for
+} swap A[i] with A [smallPos]
+endfor
+
+Big 0 is n^2 as their is nest loops

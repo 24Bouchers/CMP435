@@ -3,11 +3,11 @@ import java.io.File;
 import java.util.Scanner;
 
 public class Main {
-//Turns what will become a magic item into an array 
+  // Turns what will become a magic item into an array
   public static void Arrayify(String commonItem, String magicItem, int magicLength) {
 
     char[] magicArray;
-  //sets the array length to be the length
+    // sets the array length to be the length
     magicArray = new char[magicLength];
     for (int i = 0; i < magicLength; i++) {
       magicArray[i] = magicItem.charAt(i);
@@ -44,14 +44,12 @@ public class Main {
         magicItem = commonItem.trim().toUpperCase().replaceAll(" ", "");
 
         int magicLength = magicItem.length();
-        if (magicLength == 0){
+        if (magicLength == 0) {
 
-        }else{
-        Arrayify(commonItem, magicItem, magicLength);
+        } else {
+          Arrayify(commonItem, magicItem, magicLength);
         }
       }
     }
   }
-  }
-
-
+}
