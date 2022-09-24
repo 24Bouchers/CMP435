@@ -4,25 +4,33 @@ import java.util.Scanner;
 
 public class Main {
   public static void Arrayify(String magicItem, int magicLength) {
+
     char[] magicArray;
     magicArray = new char[magicLength];
     for (int i = 0; i < magicLength; i++) {
       magicArray[i] = magicItem.charAt(i);
     }
-    pallindromeFinder(magicArray, magicLength);
+  
+    pallindromeFinder(magicItem, magicArray, magicLength);
   }
 
-  public static void pallindromeFinder(char[] magicArray, int magicLength) {
+  public static void pallindromeFinder(String magicItem, char[] magicArray, int magicLength) {
+    int score = 0;
     char[] arrayBack;
     arrayBack = new char[magicLength];
     for (int i = 0; i < magicLength; i++) {
-      char arrayBack[i] = magicArray[i];
-      if (arrayBack == magicArray) {
-        Arrays.toString(magicArray);
-        System.out.println(magicArray);
+      arrayBack[i] = magicArray[i];
+
+      if (arrayBack[i] == magicArray[i]) {
+        score = score + 1;
+        System.out.println(score);
+        if (score == magicLength){
+          System.out.println(magicItem);
+        }
       }
     }
   }
+ 
   public static void main(String[] args) throws Exception {
     String magicItem = "";
     // pass the path to the file as a parameter
