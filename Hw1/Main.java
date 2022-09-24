@@ -3,14 +3,16 @@ import java.io.File;
 import java.util.Scanner;
 
 public class Main {
+//Turns what will become a magic item into an array 
   public static void Arrayify(String commonItem, String magicItem, int magicLength) {
 
     char[] magicArray;
+  //sets the array length to be the length
     magicArray = new char[magicLength];
     for (int i = 0; i < magicLength; i++) {
       magicArray[i] = magicItem.charAt(i);
     }
-  
+
     pallindromeFinder(commonItem, magicItem, magicArray, magicLength);
   }
 
@@ -19,21 +21,18 @@ public class Main {
     char[] arrayBack;
     arrayBack = new char[magicLength];
     for (int i = 0; i < magicLength; i++) {
-      arrayBack[i] = magicArray[(magicLength - 1-i)];
+      arrayBack[i] = magicArray[(magicLength - 1 - i)];
 
       if (arrayBack[i] == magicArray[i]) {
         score = score + 1;
-        if (score == magicLength){
-          System.out.println(magicItem);
-        }
       }
-     
+
     }
-      if (score == magicLength){
-        System.out.println(commonItem + " is a palindrome");
-      }
+    if (score == magicLength) {
+      System.out.println(commonItem + ": is a palindrome");
+    }
   }
- 
+
   public static void main(String[] args) throws Exception {
     String magicItem = "";
     // pass the path to the file as a parameter
@@ -42,14 +41,13 @@ public class Main {
       while (sc.hasNextLine()) {
         // This sets the Array Characters to all be the same case and trims spaces
         String commonItem = sc.nextLine();
-        magicItem = sc.nextLine().trim().toUpperCase().replaceAll(" ", "");
-        
+        magicItem = commonItem.trim().toUpperCase().replaceAll(" ", "");
+
         int magicLength = magicItem.length();
-        Arrayify(commonItem,magicItem,magicLength);
+        Arrayify(commonItem, magicItem, magicLength);
       }
     }
 
   }
-
 
 }
