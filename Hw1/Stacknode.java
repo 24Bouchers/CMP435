@@ -40,12 +40,17 @@ public class Stacknode {
       return;
     }
   }
-
+// Getting really close with this pop function, just need to figure out how to go back 1 from the tail
   public void pop() {
     if (tail != null) {
-      tail = null;
+      
+      tail  = null;
+      System.out.println("pop!");
+    } else {
+      System.out.println("Cant pop if there's nothing in there!");
     }
   }
+
 
   /* */
   // display() will display all the nodes present in the list
