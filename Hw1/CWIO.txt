@@ -1,13 +1,16 @@
 Completed
-
-WIP 
 create nodes 
+WIP 
+Figure out how to import other files into eachother
+Figure out how to create the Stacks and Queues 
 
 
 IDEAS
 Count the ammount of letters in each line,
 then only check for the letters in that for palindrominess
 Once completed, go to the new line 
+
+I'm pretty sure I make a class for the Node, which extends to Stack and Queue.
 
 OTHER
 I couldn't get C++ to run on my computer after trying for like a week. 
