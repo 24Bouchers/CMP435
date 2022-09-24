@@ -1,35 +1,42 @@
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+  public static void Arrayify(String magicItem, int magicLength) {
+    char[] magicArray;
+    magicArray = new char[magicLength];
+    for (int i = 0; i < magicLength; i++) {
+      magicArray[i] = magicItem.charAt(i);
+    }
+    pallindromeFinder(magicArray, magicLength);
+  }
 
-
-  public static String main(String[] args) throws Exception {
+  public static void pallindromeFinder(char[] magicArray, int magicLength) {
+    char[] arrayBack;
+    arrayBack = new char[magicLength];
+    for (int i = 0; i < magicLength; i++) {
+      char arrayBack[i] = magicArray[i];
+      if (arrayBack == magicArray) {
+        Arrays.toString(magicArray);
+        System.out.println(magicArray);
+      }
+    }
+  }
+  public static void main(String[] args) throws Exception {
     String magicItem = "";
     // pass the path to the file as a parameter
     File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw1\\magicitems.txt");
-    Scanner sc = new Scanner(file);
-    
-    
-    while (sc.hasNextLine()) {
-      magicItem = sc.nextLine().toUpperCase();
-      Arraify(magicItem);
-    }
-    return magicItem;
-
-  }
-  public static  void Arraify(String magicItem) {
-    int itemLength = magicItem.length();
-    for (int i = 0; i < itemLength; i++) {
-      char[] arrayedItem = magicItem.toCharArray();
-      System.out.println(arrayedItem);
+    try (Scanner sc = new Scanner(file)) {
+      while (sc.hasNextLine()) {
+        // This sets the Array Characters to all be the same case and trims spaces
+        magicItem = sc.nextLine().trim().toUpperCase();
+        int magicLength = magicItem.length();
+        Arrayify(magicItem,magicLength);
+      }
     }
 
   }
-  /* 
-  public void pallindromeFinder(char[] arrayedItem){
-    arrayedItem.length;
-  }
-*/
+
 
 }
