@@ -1,6 +1,9 @@
 Completed
 create nodes 
+isEmpty Works
+push works
 WIP 
+pop()
 Figure out how to import other files into eachother
 Figure out how to create the Stacks and Queues 
 

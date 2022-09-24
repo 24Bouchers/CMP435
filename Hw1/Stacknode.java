@@ -15,7 +15,7 @@ public class Stacknode {
   public Node tail = null;
 
   // this is the part actually making it
-  public void addNode(String data) {
+  public void push(String data) {
     // Create a new node
     Node newNode = new Node(data);
 
@@ -29,10 +29,25 @@ public class Stacknode {
       tail.next = newNode;
       // newNode will become new tail of the list
       tail = newNode;
-    }
 
+    }
   }
 
+  // Checks to see if the stack/queue is empty
+  public void isEmpty() {
+    if (head == null) {
+      System.out.println("List is empty");
+      return;
+    }
+  }
+
+  public void pop() {
+    if (tail != null) {
+      tail = null;
+    }
+  }
+
+  /* */
   // display() will display all the nodes present in the list
   public void display() {
     // Node current will point to head
@@ -42,7 +57,7 @@ public class Stacknode {
       System.out.println("List is empty");
       return;
     }
-    System.out.println("Nodes of singly linked list: ");
+
     while (current != null) {
       // Prints each node by incrementing pointer
       System.out.print(current.data + " ");
@@ -56,12 +71,13 @@ public class Stacknode {
     Stacknode sList = new Stacknode();
 
     // This will become letters for magic items hopefully within the next hour
-    sList.addNode("1");
-    sList.addNode("2");
-    sList.addNode("3");
-    sList.addNode("4");
 
-    // Displays the nodes present in the list
+    // Displays the nodes present in the list sList.push("1");
+    sList.push("2");
+    sList.push("3");
+    sList.push("4");
+    sList.push("5");
+    sList.pop();
     sList.display();
   }
 }
