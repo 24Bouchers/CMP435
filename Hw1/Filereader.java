@@ -1,15 +1,31 @@
 import java.io.File;
 import java.util.Scanner;
-public class Filereader
-{
-  public static void main(String[] args) throws Exception
-  {
-    //snatch the file
+
+public class Filereader {
+  public static String main(String[] args) throws Exception {
+    String magicItem = "";
+    // pass the path to the file as a parameter
     File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw1\\magicitems.txt");
-    try (Scanner sc = new Scanner(file)) {
-        for(int i = 0; i < 5)
-//each line gets converted to uppercase 
-          System.out.println((sc.nextLine().toString().toUpperCase()));         
+    Scanner sc = new Scanner(file);
+
+    while (sc.hasNextLine()) {
+      magicItem = sc.nextLine().toUpperCase();
+
     }
+    return magicItem;
+
+  }
+  /* 
+  public void pallindromeFinder(char[] arrayedItem){
+    arrayedItem.length;
+  }
+*/
+  public void Arraify(String magicItem) {
+    int itemLength = magicItem.length();
+    for (int i = 0; i < itemLength; i++) {
+      char[] arrayedItem = magicItem.toCharArray();
+      System.out.println(arrayedItem);
+    }
+   
   }
 }
