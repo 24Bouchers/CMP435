@@ -22,12 +22,12 @@ public class Main {
     arrayBack = new char[magicLength];
     for (int i = 0; i < magicLength; i++) {
       arrayBack[i] = magicArray[(magicLength - 1 - i)];
-
+  //scorekeeper, if the score is = to its length, then its a palindrome
       if (arrayBack[i] == magicArray[i]) {
         score = score + 1;
       }
-
     }
+    //Output 
     if (score == magicLength) {
       System.out.println(commonItem + ": is a palindrome");
     }
@@ -39,11 +39,12 @@ public class Main {
     File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw1\\magicitems.txt");
     try (Scanner sc = new Scanner(file)) {
       while (sc.hasNextLine()) {
-        // This sets the Array Characters to all be the same case and trims spaces
+    //This is kept track of so our print function looks clean
         String commonItem = sc.nextLine();
+    // This sets the Array Characters to all be the same case and trims spaces
         magicItem = commonItem.trim().toUpperCase().replaceAll(" ", "");
-
         int magicLength = magicItem.length();
+    //Catch to see if we have a blank line
         if (magicLength == 0) {
 
         } else {
