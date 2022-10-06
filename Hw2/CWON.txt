@@ -1,0 +1,11 @@
+Completed
+
+
+WIP
+Getting the Filereaderset up
+Put each item into an array
+clean up the array, remove "" values
+Other
+
+
+Notes
