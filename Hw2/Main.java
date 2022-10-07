@@ -6,7 +6,9 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
-    FileReader();
+
+    
+    
   }
 
   public static String[] FileReader() throws FileNotFoundException {
@@ -32,19 +34,34 @@ public class Main {
       item = sc1.nextLine();
       item = item.toUpperCase();
       magicalArray[c] = item;
-      System.out.println(magicalArray[c]);
+
       c++;
     }
     sc1.close();
     return magicalArray;
   }
-/*
-  public static void SelectionSort(Array magicalArray) throws FileNotFoundException {
+
+  public static void InsertionSort(Array magicalArray[]) throws FileNotFoundException {
     FileReader();
-    
-    for(int i = 0; i < magicalArray.size(); i++){
-      
-    }
+    System.out.println(magicalArray[1]);
+    /*
+    int comparisons = 0;
+    String temp[];
+    temp = new String[1];
+    temp[1] = "temp";
+    for(int i = 0; i < magicalArray.length; i++){
+      int check = 0;
+      String compareOne = magicalArray[i].toString();
+      String compareTwo = magicalArray[i+1].toString();
+
+      check = compareOne.compareTo(compareTwo);
+      if(check > 0){
+        temp[1] = magicalArray[];
+        magicalArray[i] = magicalArray[i+1]
+
+
+      }
+    }*/
   }
-  */
+  
 }

@@ -2,8 +2,9 @@ Completed
 Getting the Filereaderset up
 
 WIP
-Selection Sort
-
+Insertion Sort
+Calling Insertionsort 
+Calling FileReader
 
 
 Notes
