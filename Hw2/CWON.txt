@@ -1,6 +1,7 @@
 Completed
 Getting the Filereaderset up
 Selection Sort
+Shuffle
 WIP
 Insertionsort
 I have an Idea to convert the strings into a interiger

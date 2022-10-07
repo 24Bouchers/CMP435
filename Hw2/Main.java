@@ -32,6 +32,19 @@ public class Main {
     }
     sc1.close();
     SelectionSort(magicalArray);
+    Shuffle(magicalArray);
+  }
+  public static void Shuffle(String[] magicalArray) throws FileNotFoundException {
+    String temp[];
+    temp = new String[2];
+    temp[1] = null;
+    for (int i = 0; i < magicalArray.length; i++) {
+      //Swaps i spot in the ray with a random spot in the array
+      int random_int = (int)Math.floor(Math.random()*(magicalArray.length+1)+0);
+      temp[1] = magicalArray[random_int];
+      magicalArray[random_int] = magicalArray[i];
+      magicalArray[i] = temp[1];
+    }
   }
 
   public static void SelectionSort(String[] magicalArray) throws FileNotFoundException {
@@ -59,6 +72,7 @@ public class Main {
         }
       }
     }
+    System.out.print(comparisons);
     //This is just my test to visually see if it sorts
     /* 
     for (int i = 0; i < magicalArray.length; i++) {
@@ -66,11 +80,13 @@ public class Main {
       System.out.print(" ");
       System.out.print("|");
     }
-    System.out.print(comparisons);
+    
     */
   }
-
+  /* 
   public static void InsertionSort(String[] magicalArray) throws FileNotFoundException {
     int comparisons = 0;
+    System.out.println(magicalArray[1]);
   }
+  */
 }
