@@ -1,11 +1,11 @@
 Completed
-
+Getting the Filereaderset up
 
 WIP
-Getting the Filereaderset up
-Put each item into an array
-clean up the array, remove "" values
-Other
+Selection Sort
+
 
 
 Notes
+I want to make my filereader catch spaced lines, but that is not a priority
+Would be nice to slot the functions into different files, not a priority
