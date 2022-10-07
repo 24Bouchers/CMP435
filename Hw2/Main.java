@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Main {
@@ -37,7 +38,13 @@ public class Main {
     sc1.close();
     return magicalArray;
   }
-
-  public static void SelectionSort() throws FileNotFoundException {
+/*
+  public static void SelectionSort(Array magicalArray) throws FileNotFoundException {
+    FileReader();
+    
+    for(int i = 0; i < magicalArray.size(); i++){
+      
+    }
   }
+  */
 }
