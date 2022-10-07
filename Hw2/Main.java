@@ -31,22 +31,26 @@ public class Main {
       c++;
     }
     sc1.close();
-    InsertionSort(magicalArray);
+    SelectionSort(magicalArray);
   }
 
-  public static void InsertionSort(String[] magicalArray) throws FileNotFoundException {
-
+  public static void SelectionSort(String[] magicalArray) throws FileNotFoundException {
+    //Set up some basic information
     int comparisons = 0;
     String temp[];
     temp = new String[2];
     temp[1] = null;
+    //This is the r
     for (int a = 0; a < magicalArray.length; a++) {
+      //this will find select the frist element in the arayy
       for (int i = 0; i < magicalArray.length; i++) {
         String compareOne = magicalArray[i].toString();
+        //and compare it to each item in the list
         for (int j = 0; j < magicalArray.length; j++) {
           String compareTwo = magicalArray[j].toString();
           int check = compareOne.compareToIgnoreCase(compareTwo);
           comparisons++;
+          //If there is a value greater, it will swap each number
           if (check < 0) {
             temp[1] = magicalArray[i];
             magicalArray[i] = magicalArray[j];
@@ -55,11 +59,18 @@ public class Main {
         }
       }
     }
+    //This is just my test to visually see if it sorts
+    /* 
     for (int i = 0; i < magicalArray.length; i++) {
       System.out.print(magicalArray[i]);
       System.out.print(" ");
       System.out.print("|");
     }
     System.out.print(comparisons);
+    */
+  }
+
+  public static void InsertionSort(String[] magicalArray) throws FileNotFoundException {
+    int comparisons = 0;
   }
 }
