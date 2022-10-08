@@ -38,6 +38,12 @@ public class Main {
     // InsertionSort(magicalArray);
     Shuffle(magicalArray);
     MergeSort(magicalArray);
+    for (int i = 0; i < magicalArray.length; i++) {
+      System.out.print(magicalArray[i]);
+      System.out.print(" ");
+      System.out.print("|");
+    }
+
   }
 
   public static void Shuffle(String[] magicalArray) throws FileNotFoundException {
@@ -145,14 +151,14 @@ public class Main {
     int k = 0;
     while (i < leftSize && j < rightSize) {
       counter++;
-      if ((leftHand[i].compareToIgnoreCase(rightHand[j]) >= 0)) {
+      if ((leftHand[i].compareToIgnoreCase(rightHand[j]) < 0)) {
         magicalArray[k] = leftHand[i];
         i++;
       } else {
         magicalArray[k] = rightHand[j];
-        i++;
+        j++;
       }
-
+      k++;
     }
     while (i < leftSize) {
       magicalArray[k] = leftHand[i];
@@ -164,6 +170,7 @@ public class Main {
       j++;
       k++;
     }
-    System.out.println("test");
   }
+
+  
 }

@@ -2,12 +2,12 @@ Completed
 Getting the Filereaderset up
 Selection Sort
 Shuffle
+MergeSort
+
 WIP
-Insertionsort
-I have an Idea to convert the strings into a interiger
-I could compare each element to a string comprised of repeating (A)s to find 
+Quick Sort
+
 
 
 Notes
-I want to make my filereader catch spaced lines, but that is not a priority
-Would be nice to slot the functions into different files, not a priority
+Would Love to clean up Insertionsort and Selection Sort
