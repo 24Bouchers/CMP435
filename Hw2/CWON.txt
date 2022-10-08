@@ -3,10 +3,11 @@ Getting the Filereaderset up
 Selection Sort
 Shuffle
 MergeSort
-
-WIP
 Quick Sort
+WIP
 MergeSort Counter
+QuickSort Counter
+Clean Code
 
 
 Notes

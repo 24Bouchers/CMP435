@@ -42,7 +42,10 @@ public class Main {
     Shuffle(magicalArray);
     System.out.println();
     QuickSort(magicalArray, 0, magicalArray.length - 1);
-    System.out.println();
+    for (int i = 0; i < magicalArray.length; i++) {
+      System.out.println(magicalArray[i]);
+    }
+
     Shuffle(magicalArray);
     System.out.println();
     MergeSort(magicalArray);
@@ -165,21 +168,15 @@ public class Main {
   }
 
   public static void QuickSort(String[] magicalArray, int lowIndex, int highIndex) throws FileNotFoundException {
-
     if (lowIndex >= highIndex) {
-      System.out.println("string");
+      System.out.println(lowIndex + " " + highIndex);
       return;
-
     }
-
-    String pivot = magicalArray[highIndex];
     // Pointers
     int lp = lowIndex;
     int rp = highIndex;
     int counter = 0;
-    QuickSort(magicalArray, lowIndex, lp - 1);
-    QuickSort(magicalArray, lp + 1, highIndex);
-    //
+
     while (lp < rp) {
       // This checks to see if the lower pointer should be in the lower half of the
       // array
@@ -200,7 +197,7 @@ public class Main {
     // Recursively calls the same method to sort the partitioned arrays
     QuickSort(magicalArray, lowIndex, (lp - 1));
     QuickSort(magicalArray, (lp + 1), highIndex);
-    
+
   }
 
   public static void swap(String[] magicalArray, int index1, int index2) {
