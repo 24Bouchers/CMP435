@@ -33,9 +33,11 @@ public class Main {
     sc1.close();
 
     Shuffle(magicalArray);
-    SelectionSort(magicalArray);
+    // SelectionSort(magicalArray);
+    Shuffle(magicalArray);
     // InsertionSort(magicalArray);
-    SelectionSort(magicalArray);
+    Shuffle(magicalArray);
+    MergeSort(magicalArray);
   }
 
   public static void Shuffle(String[] magicalArray) throws FileNotFoundException {
@@ -115,20 +117,53 @@ public class Main {
     if (size < 2) {
       return;
     }
+    // Get the Size of our Arrays
     int midPoint = size / 2;
-    String[] leftHand = new String[midPoint];
-    String[] rightHand = new String[size - midPoint];
+    String[] leftHand;
+    leftHand = new String[midPoint];
+    String[] rightHand;
+    rightHand = new String[(size - midPoint)];
     // Fill up the Left Array
     for (int i = 0; i < midPoint; i++) {
       leftHand[i] = magicalArray[i];
     }
-    //Fill up the Right Array
-    for (int i = 0; i < midPoint; i++) {
-      rightHand[i-midPoint] = magicalArray[i];
+    // Fill up the Right Array
+    for (int i = midPoint; i < size; i++) {
+      rightHand[i - midPoint] = magicalArray[i];
     }
     MergeSort(leftHand);
     MergeSort(rightHand);
-    //merge
+    merge(magicalArray, leftHand, rightHand);
   }
 
+  public static void merge(String[] magicalArray, String[] leftHand, String[] rightHand) {
+    int leftSize = leftHand.length;
+    int rightSize = rightHand.length;
+    int counter = 0;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    while (i < leftSize && j < rightSize) {
+      counter++;
+      if ((leftHand[i].compareToIgnoreCase(rightHand[j]) >= 0)) {
+        magicalArray[k] = leftHand[i];
+        i++;
+      } else {
+        magicalArray[k] = rightHand[j];
+        i++;
+      }
+
+    }
+    while (i < leftSize) {
+      magicalArray[k] = leftHand[i];
+      i++;
+      k++;
+    }
+    while (j < rightSize) {
+      magicalArray[k] = rightHand[j];
+      j++;
+      k++;
+    }
+    System.out.println("test");
+  }
 }
