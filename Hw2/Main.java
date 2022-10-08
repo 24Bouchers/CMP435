@@ -56,6 +56,9 @@ public class Main {
     InsertionSort(magicalArray, count);
     timeA = System.currentTimeMillis();
     System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
+    for(int i = 0; i < magicalArray.length; i++){
+      System.out.println(magicalArray[i]);
+    }
   }
 
   public static void countput(int count) {
