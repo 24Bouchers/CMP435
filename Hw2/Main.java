@@ -31,9 +31,10 @@ public class Main {
       c++;
     }
     sc1.close();
-    SelectionSort(magicalArray);
+    
     Shuffle(magicalArray);
-    // InsertionSort(magicalArray);
+    SelectionSort(magicalArray);
+    //InsertionSort(magicalArray);
   }
 
   public static void Shuffle(String[] magicalArray) throws FileNotFoundException {
@@ -49,7 +50,7 @@ public class Main {
     }
   }
 
-  public static void SelectionSort(String[] magicalArray) throws FileNotFoundException {
+  public static void InsertionSort(String[] magicalArray) throws FileNotFoundException {
     // Set up some basic information
     int comparisons = 0;
     String temp[];
@@ -85,53 +86,26 @@ public class Main {
 
   }
 
-  /*
-   * public static void InsertionSort(String[] magicalArray) throws
-   * FileNotFoundException {
-   * int comparisons = 0;
-   * int basecheck = 0;
-   * int MagicValue[];
-   * MagicValue = new int[magicalArray.length];
-   * for (int i = 0; i < magicalArray.length; i++) {
-   * 
-   * }
-   */
-  /*
-   * void merge(String[] magicalArray) {
-   * int size = magicalArray.length;
-   * int mid = (1 + size) % 2;
-   * int lefthand = 0;
-   * int righthand = 0;
-   * while (size > 2){
-   * 
-   * if (mid != 0) {
-   * lefthand = size / 2;
-   * righthand = (size / 2) + (mid);
-   * } else {
-   * lefthand = size / 2;
-   * righthand = lefthand;
-   * String temp[];
-   * temp = new String[2];
-   * temp[1] = null;
-   * }
-   * }
-   */
-  /*
-   * public static void findMiddle(String[] magicalArray) throws
-   * FileNotFoundException {
-   * String selection[];
-   * selection = new String[3];
-   * for(int i = 0; i < magicalArray.length; i++){
-   * int random_int = (int) Math.floor(Math.random() * (magicalArray.length));
-   * selection[i] = magicalArray[random_int];
-   * }
-   * 
-   * for(int i = 0; i < 3; i++){
-   * String base = "A";
-   * for(int a = 0; a < selection[i].length(); a++){
-   * base = base + "A";
-   * }
-   * 
-   * }
-   */
+  public static void SelectionSort(String[] magicalArray) throws FileNotFoundException {
+    int size = magicalArray.length;
+    int comparisons = 0;
+
+    for (int i = 0; i < size; ++i) {
+      int spot = 1;
+      String low = magicalArray[i];
+      for(int j = i + 1; j < size; j++){
+        comparisons = comparisons + 1;
+        if(magicalArray[j].compareTo(low)<0){
+          spot = j;
+          low = magicalArray[j];
+        }
+      }
+      magicalArray[spot] = magicalArray[i];
+      magicalArray[i] = low;
+    }
+
+    for (int i = 0; i < size; ++i)
+      System.out.print(magicalArray[i] + " | ");
+      System.out.println(comparisons);
+  }
 }
