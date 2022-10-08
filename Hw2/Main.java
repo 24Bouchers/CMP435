@@ -34,26 +34,26 @@ public class Main {
     sc1.close();
 
     Shuffle(magicalArray);
-
+    int count = 0;
     System.out.println("Merge Sort");
     long timeB = System.currentTimeMillis();
-    MergeSort(magicalArray, c);
+    MergeSort(magicalArray, count);
     long timeA = System.currentTimeMillis();
     System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
     Shuffle(magicalArray);
     System.out.println("Quick Sort");
     timeB = System.currentTimeMillis();
-    QuickSort(magicalArray, 1, magicalArray.length - 1, c);
+    QuickSort(magicalArray, 1, magicalArray.length - 1, count);
     timeA = System.currentTimeMillis();
     System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
     Shuffle(magicalArray);
     timeB = System.currentTimeMillis();
-    SelectionSort(magicalArray, c);
+    SelectionSort(magicalArray, count);
     timeA = System.currentTimeMillis();
     System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
     Shuffle(magicalArray);
     timeB = System.currentTimeMillis();
-    InsertionSort(magicalArray, c);
+    InsertionSort(magicalArray, count);
     timeA = System.currentTimeMillis();
     System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
   }
@@ -76,35 +76,22 @@ public class Main {
     }
   }
 
-  public static void InsertionSort(String[] magicalArray, int count) throws FileNotFoundException {
-    // Set up some basic information
-
-    count = 0;
-    String temp[];
-    temp = new String[2];
-    temp[1] = null;
-    // This is the r
-    for (int a = 0; a < magicalArray.length; a++) {
-      // this will find select the frist element in the arayy
-      for (int i = 0; i < magicalArray.length; i++) {
-        String compareOne = magicalArray[i].toString();
-        // and compare it to each item in the list
-        for (int j = 0; j < magicalArray.length; j++) {
-          String compareTwo = magicalArray[j].toString();
-          int check = compareOne.compareToIgnoreCase(compareTwo);
-          count++;
-          // If there is a value greater, it will swap each number
-          if (check < 0) {
-            temp[1] = magicalArray[i];
-            magicalArray[i] = magicalArray[j];
-            magicalArray[j] = temp[1];
-          }
-        }
-      }
-    }
-    System.out.println("InsertionSort");
+  public static void InsertionSort(String[] magicalArray, int count) {
+		for (int i = 1; i < magicalArray.length; i++) {
+			
+			String currentValue = magicalArray[i];
+			
+			int j = i - 1;
+			while (j >= 0 && 0 < magicalArray[j].compareToIgnoreCase(currentValue)) {
+        count ++;
+				magicalArray[j + 1] = magicalArray[j];
+				j--;
+			}
+			magicalArray[j + 1] = currentValue;
+		}
+    System.out.println("Insertion Sort");
     countput(count);
-  }
+	}
 
   public static void SelectionSort(String[] magicalArray, int count) throws FileNotFoundException {
     int size = magicalArray.length;
