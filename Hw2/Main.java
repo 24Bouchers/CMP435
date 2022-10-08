@@ -33,16 +33,19 @@ public class Main {
     sc1.close();
 
     Shuffle(magicalArray);
-    // SelectionSort(magicalArray);
+    System.out.println();
+    SelectionSort(magicalArray);
+    System.out.println();
     Shuffle(magicalArray);
-    // InsertionSort(magicalArray);
+    System.out.println();
+    InsertionSort(magicalArray);
     Shuffle(magicalArray);
+    System.out.println();
+    QuickSort(magicalArray, 0, magicalArray.length - 1);
+    System.out.println();
+    Shuffle(magicalArray);
+    System.out.println();
     MergeSort(magicalArray);
-    for (int i = 0; i < magicalArray.length; i++) {
-      System.out.print(magicalArray[i]);
-      System.out.print(" ");
-      System.out.print("|");
-    }
 
   }
 
@@ -84,15 +87,7 @@ public class Main {
         }
       }
     }
-    System.out.print(comparisons);
-    // This is just my test to visually see if it sorts
-
-    for (int i = 0; i < magicalArray.length; i++) {
-      System.out.print(magicalArray[i]);
-      System.out.print(" ");
-      System.out.print("|");
-    }
-
+    System.out.println("InsertionSort took " + comparisons + " comparisons");
   }
 
   public static void SelectionSort(String[] magicalArray) throws FileNotFoundException {
@@ -112,10 +107,7 @@ public class Main {
       magicalArray[spot] = magicalArray[i];
       magicalArray[i] = low;
     }
-
-    for (int i = 0; i < size; ++i)
-      System.out.print(magicalArray[i] + " | ");
-    System.out.println(comparisons);
+    System.out.println("SelectionSort took " + comparisons + " comparisons");
   }
 
   public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
@@ -172,5 +164,48 @@ public class Main {
     }
   }
 
-  
+  public static void QuickSort(String[] magicalArray, int lowIndex, int highIndex) throws FileNotFoundException {
+
+    if (lowIndex >= highIndex) {
+      System.out.println("string");
+      return;
+
+    }
+
+    String pivot = magicalArray[highIndex];
+    // Pointers
+    int lp = lowIndex;
+    int rp = highIndex;
+    int counter = 0;
+    QuickSort(magicalArray, lowIndex, lp - 1);
+    QuickSort(magicalArray, lp + 1, highIndex);
+    //
+    while (lp < rp) {
+      // This checks to see if the lower pointer should be in the lower half of the
+      // array
+      while ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp < rp) {
+        lp++;
+        counter++;
+      }
+      // This checks to see if the high pointer should be in the upper half of the
+      // array
+      while ((magicalArray[rp].compareToIgnoreCase(magicalArray[highIndex]) > 0) && lp < rp) {
+        rp--;
+        counter++;
+      }
+      // Swaps the values of the points
+      swap(magicalArray, lp, rp);
+    }
+    swap(magicalArray, lp, highIndex);
+    // Recursively calls the same method to sort the partitioned arrays
+    QuickSort(magicalArray, lowIndex, (lp - 1));
+    QuickSort(magicalArray, (lp + 1), highIndex);
+    
+  }
+
+  public static void swap(String[] magicalArray, int index1, int index2) {
+    String temp = magicalArray[index1];
+    magicalArray[index1] = magicalArray[index2];
+    magicalArray[index2] = temp;
+  }
 }
