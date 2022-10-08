@@ -6,7 +6,7 @@ MergeSort
 
 WIP
 Quick Sort
-
+MergeSort Counter
 
 
 Notes
