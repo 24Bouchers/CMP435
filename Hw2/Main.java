@@ -57,7 +57,7 @@ public class Main {
     timeA = System.currentTimeMillis();
     System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
   }
-
+  //hmmm punny
   public static void countput(int count) {
 
     System.out.println("Number of comparisons: " + count);
@@ -96,7 +96,6 @@ public class Main {
   public static void SelectionSort(String[] magicalArray, int count) throws FileNotFoundException {
     int size = magicalArray.length;
     count = 0;
-
     for (int i = 0; i < size; ++i) {
       int spot = 1;
       String low = magicalArray[i];
