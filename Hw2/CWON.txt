@@ -4,10 +4,10 @@ Selection Sort
 Shuffle
 MergeSort
 Quick Sort
+TimeKeeper
 WIP
 MergeSort Counter
 QuickSort Counter
-Clean Code
 
 
 Notes

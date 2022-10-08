@@ -32,19 +32,35 @@ public class Main {
       c++;
     }
     sc1.close();
-    int count = 0;
-    Shuffle(magicalArray);
-    SelectionSort(magicalArray);
-    Shuffle(magicalArray);
-    InsertionSort(magicalArray);
-    Shuffle(magicalArray);
-    MergeSort(magicalArray);
-    System.out.println("Done Merge");
-    Shuffle(magicalArray);
-    QuickSort(magicalArray, 1, magicalArray.length - 1);
-    System.out.println("Done Quck");
-    System.out.println("finished");
 
+    Shuffle(magicalArray);
+
+    System.out.println("Merge Sort");
+    long timeB = System.currentTimeMillis();
+    MergeSort(magicalArray, c);
+    long timeA = System.currentTimeMillis();
+    System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
+    Shuffle(magicalArray);
+    System.out.println("Quick Sort");
+    timeB = System.currentTimeMillis();
+    QuickSort(magicalArray, 1, magicalArray.length - 1, c);
+    timeA = System.currentTimeMillis();
+    System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
+    Shuffle(magicalArray);
+    timeB = System.currentTimeMillis();
+    SelectionSort(magicalArray, c);
+    timeA = System.currentTimeMillis();
+    System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
+    Shuffle(magicalArray);
+    timeB = System.currentTimeMillis();
+    InsertionSort(magicalArray, c);
+    timeA = System.currentTimeMillis();
+    System.out.println("This took : " + (timeA - timeB) + " milliseconds ");
+  }
+
+  public static void countput(int count) {
+
+    System.out.println("Number of comparisons: " + count);
   }
 
   public static void Shuffle(String[] magicalArray) throws FileNotFoundException {
@@ -58,11 +74,11 @@ public class Main {
       magicalArray[random_int] = magicalArray[i];
       magicalArray[i] = temp[1];
     }
-    System.out.println("Shuffled");
   }
 
   public static void InsertionSort(String[] magicalArray, int count) throws FileNotFoundException {
     // Set up some basic information
+
     count = 0;
     String temp[];
     temp = new String[2];
@@ -86,7 +102,8 @@ public class Main {
         }
       }
     }
-    System.out.println("InsertionSort took " + count + " comparisons");
+    System.out.println("InsertionSort");
+    countput(count);
   }
 
   public static void SelectionSort(String[] magicalArray, int count) throws FileNotFoundException {
@@ -97,7 +114,7 @@ public class Main {
       int spot = 1;
       String low = magicalArray[i];
       for (int j = i + 1; j < size; j++) {
-        count ++;
+        count++;
         if (magicalArray[j].compareTo(low) < 0) {
           spot = j;
           low = magicalArray[j];
@@ -106,10 +123,11 @@ public class Main {
       magicalArray[spot] = magicalArray[i];
       magicalArray[i] = low;
     }
-    System.out.println("SelectionSort took " + count + " comparisons");
+    System.out.println("SelectionSort");
+    countput(count);
   }
 
-  public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
+  public static void MergeSort(String[] magicalArray, int count) throws FileNotFoundException {
     int size = magicalArray.length;
     if (size < 2) {
       return;
@@ -128,20 +146,20 @@ public class Main {
     for (int i = midPoint; i < size; i++) {
       rightHand[i - midPoint] = magicalArray[i];
     }
-    MergeSort(leftHand);
-    MergeSort(rightHand);
-    merge(magicalArray, leftHand, rightHand);
+    MergeSort(leftHand, count);
+    MergeSort(rightHand, count);
+    merge(magicalArray, leftHand, rightHand, count);
+
   }
 
-  public static void merge(String[] magicalArray, String[] leftHand, String[] rightHand) {
+  public static void merge(String[] magicalArray, String[] leftHand, String[] rightHand, int count) {
     int leftSize = leftHand.length;
     int rightSize = rightHand.length;
-    int counter = 0;
     int i = 0;
     int j = 0;
     int k = 0;
     while (i < leftSize && j < rightSize) {
-      counter++;
+      count++;
       if ((leftHand[i].compareToIgnoreCase(rightHand[j]) < 0)) {
         magicalArray[k] = leftHand[i];
         i++;
@@ -161,11 +179,13 @@ public class Main {
       j++;
       k++;
     }
+    countput(count);
   }
 
-  private static void QuickSort(String[] magicalArray, int lowIndex, int highIndex) {
+  private static void QuickSort(String[] magicalArray, int lowIndex, int highIndex, int count) {
 
     if (lowIndex >= highIndex) {
+
       return;
     }
 
@@ -173,29 +193,31 @@ public class Main {
     String pivot = magicalArray[pivotIndex];
     swap(magicalArray, pivotIndex, highIndex);
 
-    int leftPointer = partition(magicalArray, lowIndex, highIndex, pivot);
+    int leftPointer = partition(magicalArray, lowIndex, highIndex, pivot, count);
 
-    QuickSort(magicalArray, lowIndex, leftPointer - 1);
-    QuickSort(magicalArray, leftPointer + 1, highIndex);
+    QuickSort(magicalArray, lowIndex, leftPointer - 1, count);
+    QuickSort(magicalArray, leftPointer + 1, highIndex, count);
 
   }
 
-  private static int partition(String[] magicalArray, int lowIndex, int highIndex, String pivot) {
+  private static int partition(String[] magicalArray, int lowIndex, int highIndex, String pivot, int count) {
     int lp = lowIndex;
     int rp = highIndex - 1;
+
     while (lp < rp) {
 
       // Walk from the left until we find a number greater than the pivot, or hit the
       // right pointer.
       while ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp < rp) {
         lp++;
-        
+        count++;
       }
 
       // Walk from the right until we find a number less than the pivot, or hit the
       // left pointer.
       while ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp > rp) {
         rp--;
+        count++;
       }
 
       swap(magicalArray, lp, rp);
@@ -204,10 +226,11 @@ public class Main {
 
     if ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp > rp) {
       swap(magicalArray, lp, highIndex);
+      count++;
     } else {
       lp = highIndex;
     }
-
+    countput(count);
     return lp;
   }
 
@@ -217,5 +240,3 @@ public class Main {
     magicalArray[index2] = temp;
   }
 }
-
-
