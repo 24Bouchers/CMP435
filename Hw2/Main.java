@@ -31,10 +31,11 @@ public class Main {
       c++;
     }
     sc1.close();
-    
+
     Shuffle(magicalArray);
     SelectionSort(magicalArray);
-    //InsertionSort(magicalArray);
+    // InsertionSort(magicalArray);
+    SelectionSort(magicalArray);
   }
 
   public static void Shuffle(String[] magicalArray) throws FileNotFoundException {
@@ -93,9 +94,9 @@ public class Main {
     for (int i = 0; i < size; ++i) {
       int spot = 1;
       String low = magicalArray[i];
-      for(int j = i + 1; j < size; j++){
+      for (int j = i + 1; j < size; j++) {
         comparisons = comparisons + 1;
-        if(magicalArray[j].compareTo(low)<0){
+        if (magicalArray[j].compareTo(low) < 0) {
           spot = j;
           low = magicalArray[j];
         }
@@ -106,6 +107,28 @@ public class Main {
 
     for (int i = 0; i < size; ++i)
       System.out.print(magicalArray[i] + " | ");
-      System.out.println(comparisons);
+    System.out.println(comparisons);
   }
+
+  public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
+    int size = magicalArray.length;
+    if (size < 2) {
+      return;
+    }
+    int midPoint = size / 2;
+    String[] leftHand = new String[midPoint];
+    String[] rightHand = new String[size - midPoint];
+    // Fill up the Left Array
+    for (int i = 0; i < midPoint; i++) {
+      leftHand[i] = magicalArray[i];
+    }
+    //Fill up the Right Array
+    for (int i = 0; i < midPoint; i++) {
+      rightHand[i-midPoint] = magicalArray[i];
+    }
+    MergeSort(leftHand);
+    MergeSort(rightHand);
+    //merge
+  }
+
 }
