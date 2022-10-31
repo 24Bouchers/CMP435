@@ -33,24 +33,36 @@ public class Main {
         sc1.close();
 
         MergeSort(magicalArray);
-        LinearSearch(magicalArray);
-
+        // LinearSearch(magicalArray);
+        
+/*  Compare to test
+        for (int i = 0; i < 666; i++) {
+            
+            int check = magicalArray[i].compareTo(magicalArray[magicalArray.length/2]);
+            if (check < 0) {
+                System.out.println("Neg");
+            }
+            if (check > 0) {
+                System.out.println("Positive");
+            }
+            if (check == 0){
+                System.out.println("Found it");
+            }
+        }
+*/
     }
 
-
-
-
-    public static void LinearSearch(String[] magicalArray){
+    public static void LinearSearch(String[] magicalArray) {
 
         int total = 0;
-        //This is set up for how many items were locating 
+        // This is set up for how many items were locating
         for (int i = 0; i < 42; i++) {
             int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
             String magicItem = magicalArray[random_int];
-        //Counter Counts the ammount of comparisons each item makes
+            // Counter Counts the ammount of comparisons each item makes
             int counter = 0;
             boolean found = false;
-        //Looks for the item
+            // Looks for the item
             while (found != true) {
                 counter++;
                 if (magicItem == magicalArray[counter]) {
@@ -62,43 +74,34 @@ public class Main {
         System.out.println(total + " Total Comparisons");
     }
 
-    public static void BinarySearch(String[] magicalArray){
+    public static void BinarySearch(String[] magicalArray) {
         int total = 0;
-        //This is set up for how many items were locating 
+        // This is set up for how many items were locating
         for (int i = 0; i < 42; i++) {
             int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
             String magicItem = magicalArray[random_int];
-        //Counter Counts the ammount of comparisons each item makes
+            // Counter Counts the ammount of comparisons each item makes
             int counter = 0;
             boolean found = false;
             while (found != true) {
-            int lp = 0;
-            int hp = magicalArray.length;
-            int mp = hp / lp;
-         //   if(){
-
-         //   }
+                int lp = 0;
+                int hp = magicalArray.length;
+                int mp = hp / lp;
+                if (magicItem.compareTo(magicalArray[mp]) < 0) {
+                    hp = mp;
+                    lp = 0;
+                    mp = hp / lp;
+                } else {
+                    if (magicItem.compareTo(magicalArray[mp]) > 0) {
+                        lp = mp;
+                        hp = magicalArray.length;
+                        mp = hp / lp;
+                    }
+                }
             }
         }
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
         int size = magicalArray.length;
