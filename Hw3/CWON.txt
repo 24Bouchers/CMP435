@@ -1,6 +1,13 @@
 Completed
+File Setup
+Imported main Statement
+Imported Merge Sort 
+Liner Search 
+Linear Counting
 
 Work In Progress 
+Binary Search
+
 
 Other
 
