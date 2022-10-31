@@ -40,7 +40,7 @@ public class Main {
 
 
 
-    public static void LinearSearch(String[] magicalArray) {
+    public static void LinearSearch(String[] magicalArray){
 
         int total = 0;
         //This is set up for how many items were locating 
@@ -61,6 +61,44 @@ public class Main {
         }
         System.out.println(total + " Total Comparisons");
     }
+
+    public static void BinarySearch(String[] magicalArray){
+        int total = 0;
+        //This is set up for how many items were locating 
+        for (int i = 0; i < 42; i++) {
+            int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
+            String magicItem = magicalArray[random_int];
+        //Counter Counts the ammount of comparisons each item makes
+            int counter = 0;
+            boolean found = false;
+            while (found != true) {
+            int lp = 0;
+            int hp = magicalArray.length;
+            int mp = hp / lp;
+         //   if(){
+
+         //   }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
         int size = magicalArray.length;
