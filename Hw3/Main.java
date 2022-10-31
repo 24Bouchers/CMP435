@@ -34,22 +34,23 @@ public class Main {
 
         MergeSort(magicalArray);
         // LinearSearch(magicalArray);
-        
-/*  Compare to test
-        for (int i = 0; i < 666; i++) {
-            
-            int check = magicalArray[i].compareTo(magicalArray[magicalArray.length/2]);
-            if (check < 0) {
-                System.out.println("Neg");
-            }
-            if (check > 0) {
-                System.out.println("Positive");
-            }
-            if (check == 0){
-                System.out.println("Found it");
-            }
-        }
-*/
+        BinarySearch(magicalArray);
+        /*
+         * Compare to test
+         * for (int i = 0; i < 666; i++) {
+         * 
+         * int check = magicalArray[i].compareTo(magicalArray[magicalArray.length/2]);
+         * if (check < 0) {
+         * System.out.println("Neg");
+         * }
+         * if (check > 0) {
+         * System.out.println("Positive");
+         * }
+         * if (check == 0){
+         * System.out.println("Found it");
+         * }
+         * }
+         */
     }
 
     public static void LinearSearch(String[] magicalArray) {
@@ -80,25 +81,49 @@ public class Main {
         for (int i = 0; i < 42; i++) {
             int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
             String magicItem = magicalArray[random_int];
+            System.out.println(magicItem);
             // Counter Counts the ammount of comparisons each item makes
             int counter = 0;
             boolean found = false;
+            int lp = 0;
+            int hp = magicalArray.length;
+            int mp = hp / 2;
+            int offset = 0;
             while (found != true) {
-                int lp = 0;
-                int hp = magicalArray.length;
-                int mp = hp / lp;
+                counter++;
+                offset++;
+                
+                if (offset == 4) {
+                    lp++;
+                    mp++;
+                    hp++;
+                    System.out.println("offset");
+
+                }
                 if (magicItem.compareTo(magicalArray[mp]) < 0) {
                     hp = mp;
                     lp = 0;
-                    mp = hp / lp;
-                } else {
-                    if (magicItem.compareTo(magicalArray[mp]) > 0) {
-                        lp = mp;
-                        hp = magicalArray.length;
-                        mp = hp / lp;
-                    }
+                    mp = hp / 2;
+                    System.out.println(magicalArray[mp]);
+                    System.out.println("down");
                 }
+                if (magicItem.compareTo(magicalArray[mp]) > 0) {
+                    lp = mp;
+                    hp = magicalArray.length;
+                    mp = (hp + lp) / 2;
+                    System.out.println(magicalArray[mp]);
+                    System.out.println("Up");
+
+
+                }
+                if (magicItem.compareTo(magicalArray[mp]) == 0) {
+                    System.out.println(magicItem);
+                    System.out.println(magicalArray[mp]);
+                    found = true;
+                }
+
             }
+            total = total + counter;
         }
 
     }

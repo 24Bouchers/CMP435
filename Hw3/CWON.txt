@@ -12,4 +12,4 @@ Binary Search
 Other
 
 Notes
-THE MARKERS ARE COMMING OUT THE MIRRORS ARE NO LONGER SAFE
+Binary Search is currently Forever Looping
