@@ -32,9 +32,9 @@ public class Main {
         }
         sc1.close();
 
-        MergeSort(magicalArray);
+        QuickSort(magicalArray, 0, (magicalArray.length - 1));      
         // LinearSearch(magicalArray);
-        BinarySearch(magicalArray);
+        //BinarySearch(magicalArray);
         /*
          * Compare to test
          * for (int i = 0; i < 666; i++) {
@@ -104,14 +104,14 @@ public class Main {
                     hp = mp;
                     lp = 0;
                     mp = hp / 2;
-                    System.out.println(magicalArray[mp]);
+                    System.out.println(mp);
                     System.out.println("down");
                 }
                 if (magicItem.compareTo(magicalArray[mp]) > 0) {
                     lp = mp;
                     hp = magicalArray.length;
                     mp = (hp + lp) / 2;
-                    System.out.println(magicalArray[mp]);
+                    System.out.println(mp);
                     System.out.println("Up");
 
 
@@ -128,56 +128,59 @@ public class Main {
 
     }
 
-    public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
-        int size = magicalArray.length;
-        if (size < 2) {
-            return;
-        }
-        // Get the Size of our Arrays
-        int midPoint = size / 2;
-        String[] leftHand;
-        leftHand = new String[midPoint];
-        String[] rightHand;
-        rightHand = new String[(size - midPoint)];
-        // Fill up the Left Array
-        for (int i = 0; i < midPoint; i++) {
-            leftHand[i] = magicalArray[i];
-        }
-        // Fill up the Right Array
-        for (int i = midPoint; i < size; i++) {
-            rightHand[i - midPoint] = magicalArray[i];
-        }
-        MergeSort(leftHand);
-        MergeSort(rightHand);
-        merge(magicalArray, leftHand, rightHand);
+    private static void QuickSort(String[] magicalArray, int lowIndex, int highIndex) {
 
-    }
+        if (lowIndex >= highIndex) {
+    
+          return;
+        }
+    
+        int pivotIndex = (int) Math.floor(Math.random() * (666 - 0 + 1));
+        String pivot = magicalArray[pivotIndex];
+        swap(magicalArray, pivotIndex, highIndex);
+    
+        int leftPointer = partition(magicalArray, lowIndex, highIndex, pivot );
+    
+        QuickSort(magicalArray, lowIndex, leftPointer - 1);
+        QuickSort(magicalArray, leftPointer + 1, highIndex);
+    
+      }
+    
+      private static int partition(String[] magicalArray, int lowIndex, int highIndex, String pivot) {
+        int lp = lowIndex;
+        int rp = highIndex - 1;
+    
+        while (lp < rp) {
+    
+          // Walk from the left until we find a number greater than the pivot, or hit the
+          // right pointer.
+          while ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp < rp) {
+            lp++;
+          }
+    
+          // Walk from the right until we find a number less than the pivot, or hit the
+          // left pointer.
+          while ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp > rp) {
+            rp--;
+          }
+    
+          swap(magicalArray, lp, rp);
+          lp++;
+        }
+    
+        if ((magicalArray[lp].compareToIgnoreCase(magicalArray[highIndex]) < 0) && lp > rp) {
+          swap(magicalArray, lp, highIndex);
+        } else {
+          lp = highIndex;
+        }
 
-    public static void merge(String[] magicalArray, String[] leftHand, String[] rightHand) {
-        int leftSize = leftHand.length;
-        int rightSize = rightHand.length;
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        while (i < leftSize && j < rightSize) {
-            if ((leftHand[i].compareToIgnoreCase(rightHand[j]) < 0)) {
-                magicalArray[k] = leftHand[i];
-                i++;
-            } else {
-                magicalArray[k] = rightHand[j];
-                j++;
-            }
-            k++;
-        }
-        while (i < leftSize) {
-            magicalArray[k] = leftHand[i];
-            i++;
-            k++;
-        }
-        while (j < rightSize) {
-            magicalArray[k] = rightHand[j];
-            j++;
-            k++;
-        }
+        return lp;
+      }
+    
+      public static void swap(String[] magicalArray, int index1, int index2) {
+        String temp = magicalArray[index1];
+        magicalArray[index1] = magicalArray[index2];
+        magicalArray[index2] = temp;
+      }
     }
-}
+    
