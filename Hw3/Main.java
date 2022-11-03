@@ -76,7 +76,23 @@ public class Main {
   }
 
   public static void BinarySearch(String[] magicalArray) {
-          
+        String magicItem = magicalArray[42];
+        int lp = 0;
+        int hp = magicalArray.length - 1;
+        
+        while(lp < hp) {
+          int mp = (lp + hp) / 2;
+          if(42 == mp){
+            System.out.println("Yay" + magicItem);
+          } else if (magicItem.compareTo(magicalArray[mp]) > 0){
+            hp = mp - 1;
+            System.out.println(magicItem.compareTo(magicalArray[mp]));
+          } else {
+            lp = mp - 1;
+           System.out.println(magicItem.compareTo(magicalArray[mp]));
+          }
+        }
+
         }
 
   private static void QuickSort(String[] magicalArray, int lowIndex, int highIndex) {
