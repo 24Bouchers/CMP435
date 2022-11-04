@@ -18,7 +18,7 @@ public class Main {
     int numSearches = 42;
     // This is set up for how many items were locating
     for (int i = 0; i < numSearches; i++) {
-      int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
+      int random_int = (int) Math.floor(Math.random() * (666));
       String magicItem = magicalArray[random_int];
       // Counter Counts the ammount of comparisons each item makes
       int counter = 0;
@@ -42,7 +42,7 @@ public class Main {
     // This is set up for how many items were locating
     for (int i = 0; i < numSearches; i++) {
       // Variable Decleration
-      int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
+      int random_int = (int) Math.floor(Math.random() * (666));
       String item = magicalArray[random_int];
       int counter = 0;
       int lp = 0;
@@ -61,9 +61,11 @@ public class Main {
         }
         total = total + counter;
       }
+      
     }
     int average = total / numSearches;
     System.out.println("Binary Search took a total of " + average + " Comparisons");
+
   }
 
   public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
