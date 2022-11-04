@@ -5,10 +5,10 @@ Imported Merge Sort
 Liner Search 
 Linear Counting
 Binary Search
-
-Work In Progress 
 Binary Repeat
 Binary Counting
+Work In Progress 
+
 
 
 Other

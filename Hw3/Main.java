@@ -47,7 +47,7 @@ public class Main {
     System.out.println(Test);
     */
 
-    // LinearSearch(magicalArray);
+    LinearSearch(magicalArray);
     BinarySearch(magicalArray);
   }
 
@@ -70,25 +70,38 @@ public class Main {
         }
       }
     }
-    System.out.println(total + " Total Comparisons");
+    System.out.println("Linear Search took a total of " + total + " Comparisons");
   }
 
   public static void BinarySearch(String[] magicalArray){
-    String item = magicalArray[467];
-    int lp = 0;
-    int rp = magicalArray.length -1;
-    while(lp <= rp){
-      int mp = lp + (rp - lp) / 2;
-      if (magicalArray[mp] == item){
-        lp = rp + 1;
-        System.out.println(item);
-        System.out.println(magicalArray[mp]);
-      } else if ((item.compareToIgnoreCase(magicalArray[mp])) < 0){
-        rp = mp - 1;      
-    } else {
-      lp = mp +1;
+    int total = 0;
+    // This is set up for how many items were locating
+    for (int i = 0; i < 42; i++) {
+      int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
+      String item = magicalArray[random_int];
+      // Counter Counts the ammount of comparisons each item makes
+      int counter = 0;
+      int lp = 0;
+      int rp = magicalArray.length -1;
+      boolean found = false;
+      while(lp <= rp){
+        int mp = lp + (rp - lp) / 2;
+        counter ++;
+        if (magicalArray[mp] == item){
+          found = true;
+          rp = mp;
+          lp = mp + 1;
+
+        } 
+        else if ((item.compareToIgnoreCase(magicalArray[mp])) < 0){
+          rp = mp - 1;      
+        } else {
+        lp = mp +1;
+        }
+        total = total + counter;
+      }
     }
-    }
+    System.out.println("Binary Search took a total of " + total + " Comparisons");
   }
 
   public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
@@ -143,5 +156,4 @@ public class Main {
       k++;
     }
   }
-
 }
