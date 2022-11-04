@@ -4,12 +4,13 @@ Imported main Statement
 Imported Merge Sort 
 Liner Search 
 Linear Counting
+Binary Search
 
 Work In Progress 
-Binary Search
+Binary Repeat
+Binary Counting
 
 
 Other
 
 Notes
-Binary Search is currently Forever Looping
