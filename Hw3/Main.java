@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -54,8 +53,9 @@ public class Main {
   public static void LinearSearch(String[] magicalArray) {
 
     int total = 0;
+    int numSearches = 42;
     // This is set up for how many items were locating
-    for (int i = 0; i < 42; i++) {
+    for (int i = 0; i < numSearches; i++) {
       int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
       String magicItem = magicalArray[random_int];
       // Counter Counts the ammount of comparisons each item makes
@@ -70,13 +70,15 @@ public class Main {
         }
       }
     }
-    System.out.println("Linear Search took a total of " + total + " Comparisons");
+    int average = total / numSearches;
+    System.out.println("Linear Search took a total of " + average + " Comparisons");
   }
 
   public static void BinarySearch(String[] magicalArray){
     int total = 0;
+    int numSearches = 42;
     // This is set up for how many items were locating
-    for (int i = 0; i < 42; i++) {
+    for (int i = 0; i < numSearches; i++) {
       int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
       String item = magicalArray[random_int];
       // Counter Counts the ammount of comparisons each item makes
@@ -84,14 +86,11 @@ public class Main {
       int lp = 0;
       int rp = magicalArray.length -1;
       boolean found = false;
-      while(lp <= rp){
+      while(found == false){
         int mp = lp + (rp - lp) / 2;
         counter ++;
         if (magicalArray[mp] == item){
           found = true;
-          rp = mp;
-          lp = mp + 1;
-
         } 
         else if ((item.compareToIgnoreCase(magicalArray[mp])) < 0){
           rp = mp - 1;      
@@ -101,7 +100,8 @@ public class Main {
         total = total + counter;
       }
     }
-    System.out.println("Binary Search took a total of " + total + " Comparisons");
+    int average = total / numSearches;
+    System.out.println("Binary Search took a total of " + average + " Comparisons");
   }
 
   public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
