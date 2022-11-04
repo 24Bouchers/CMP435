@@ -2,7 +2,7 @@ import java.io.File;
 
 import java.util.Scanner;
 
-public class ain {
+public class Main {
   // Turns what will become a magic item into an array
   public static void Arrayify(String commonItem, String magicItem, int magicLength) {
 
