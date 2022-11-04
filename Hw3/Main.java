@@ -5,32 +5,9 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
-    int fileSize = 0;
-    String magicalArray[];
-    String item = "";
-    int c = 0;
-    // pass the path to the file as a parameter
-    File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw2\\magicitems.txt");
-    Scanner sc0 = new Scanner(file);
-    // Find the Ammount of Lines in the file
-    while (sc0.hasNextLine()) {
-      sc0.nextLine();
-      fileSize++;
-    }
-    sc0.close();
-    magicalArray = new String[fileSize];
-    Scanner sc1 = new Scanner(file);
-    // Array Filler
-    while (sc1.hasNextLine()) {
-      item = sc1.nextLine();
-      magicalArray[c] = item;
-      c++;
-    }
-    sc1.close();
     // FUNCTIONS GOES HERE
-    MergeSort(magicalArray);
-    LinearSearch(magicalArray);
-    BinarySearch(magicalArray);
+    LinearSearch(FileReader());
+    BinarySearch(FileReader());
 
     // TESTS
   }
@@ -140,5 +117,31 @@ public class Main {
       j++;
       k++;
     }
+  }
+  public static String[] FileReader() throws FileNotFoundException{
+    int fileSize = 0;
+    String magicalArray[];
+    String item = "";
+    int c = 0;
+    // pass the path to the file as a parameter
+    File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw2\\magicitems.txt");
+    Scanner sc0 = new Scanner(file);
+    // Find the Ammount of Lines in the file
+    while (sc0.hasNextLine()) {
+      sc0.nextLine();
+      fileSize++;
+    }
+    sc0.close();
+    magicalArray = new String[fileSize];
+    Scanner sc1 = new Scanner(file);
+    // Array Filler
+    while (sc1.hasNextLine()) {
+      item = sc1.nextLine();
+      magicalArray[c] = item;
+      c++;
+    }
+    sc1.close();
+    MergeSort(magicalArray);
+    return magicalArray;
   }
 }

@@ -9,8 +9,9 @@ Binary Repeat
 Binary Counting
 
 Work In Progress 
-
+Looking into remaking Linked Lists
+Hashing 
 
 
 Notes
-I'd Love to optimize my Filereader into a function
+Oh my does that main function look so much better 
