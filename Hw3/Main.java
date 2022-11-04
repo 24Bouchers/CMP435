@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
-
-    // Var Declerations
     int fileSize = 0;
     String magicalArray[];
     String item = "";
@@ -20,34 +18,21 @@ public class Main {
       fileSize++;
     }
     sc0.close();
-    // set the unmagicalArray size to the size of the file
     magicalArray = new String[fileSize];
-    // Fill that array
     Scanner sc1 = new Scanner(file);
+    // Array Filler
     while (sc1.hasNextLine()) {
       item = sc1.nextLine();
       magicalArray[c] = item;
-
       c++;
     }
     sc1.close();
-
+    // FUNCTIONS GOES HERE
     MergeSort(magicalArray);
-    //MERGE SORT TEST
-    /*
-     * for(int i = 0; i < magicalArray.length; i++){
-     * System.out.println(magicalArray[i]);
-     * }
-     */
-    //COMPARE TO TEST
-    /*String first = "apple";
-    String Second = "x";
-    int Test = first.compareToIgnoreCase(Second);
-    System.out.println(Test);
-    */
-
     LinearSearch(magicalArray);
     BinarySearch(magicalArray);
+
+    // TESTS
   }
 
   public static void LinearSearch(String[] magicalArray) {
@@ -74,28 +59,28 @@ public class Main {
     System.out.println("Linear Search took a total of " + average + " Comparisons");
   }
 
-  public static void BinarySearch(String[] magicalArray){
+  public static void BinarySearch(String[] magicalArray) {
     int total = 0;
     int numSearches = 42;
     // This is set up for how many items were locating
     for (int i = 0; i < numSearches; i++) {
+      // Variable Decleration
       int random_int = (int) Math.floor(Math.random() * (666 - 0 + 1));
       String item = magicalArray[random_int];
-      // Counter Counts the ammount of comparisons each item makes
       int counter = 0;
       int lp = 0;
-      int rp = magicalArray.length -1;
+      int rp = magicalArray.length - 1;
       boolean found = false;
-      while(found == false){
+      // Actual Search Function
+      while (found == false) {
         int mp = lp + (rp - lp) / 2;
-        counter ++;
-        if (magicalArray[mp] == item){
+        counter++;
+        if (magicalArray[mp] == item) {
           found = true;
-        } 
-        else if ((item.compareToIgnoreCase(magicalArray[mp])) < 0){
-          rp = mp - 1;      
+        } else if ((item.compareToIgnoreCase(magicalArray[mp])) < 0) {
+          rp = mp - 1;
         } else {
-        lp = mp +1;
+          lp = mp + 1;
         }
         total = total + counter;
       }
