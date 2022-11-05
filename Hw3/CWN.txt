@@ -7,10 +7,12 @@ Linear Counting
 Binary Search
 Binary Repeat
 Binary Counting
+Linked List
+?Hashing?
 
 Work In Progress 
-Looking into remaking Linked Lists
-Hashing 
+Binary Search Tree
+
 
 
 Notes

@@ -6,10 +6,17 @@ public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
     // FUNCTIONS GOES HERE
+    String[] magicalArray = FileReader();
     LinearSearch(FileReader());
     BinarySearch(FileReader());
 
+
     // TESTS
+    LinkedList list = new LinkedList();
+    for(int i = 0; i < magicalArray.length; i++){
+      list.insert(Hashing.makeHashCode(magicalArray[i]));
+    }
+    list.show();
   }
 
   public static void LinearSearch(String[] magicalArray) {
@@ -147,3 +154,4 @@ public class Main {
     return magicalArray;
   }
 }
+
