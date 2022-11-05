@@ -111,9 +111,9 @@ public class Hashing {
       Public
     */
 
-   public static void main(String[] args) {
-      System.out.println("Hash code tests and analysis.");
-      System.out.println("-----------------------------");
+   public static void hashThat(String[] args) {
+   //  System.out.println("Hash code tests and analysis.");
+   //  System.out.println("-----------------------------");
 
       String[] magicItems = new String[LINES_IN_FILE];
       int[] hashValues = new int[LINES_IN_FILE];
@@ -137,15 +137,16 @@ public class Hashing {
       // Print the array and hash values.
       int hashCode = 0;
       for (int i = 0; i < LINES_IN_FILE; i++) {
-         System.out.print(i);
-         System.out.print(". " + magicItems[i] + " - ");
+      //  System.out.print(i);
+      //   System.out.print(". " + magicItems[i] + " - ");
          hashCode = makeHashCode(magicItems[i]);
-         System.out.format("%03d%n", hashCode);
+      //  System.out.format("%03d%n", hashCode);
          hashValues[i] = hashCode;
       }
 
       // Analyze the distribution of hash values.
-      analyzeHashValues(hashValues);
+      System.out.println("Hash Table Created");
+      //analyzeHashValues(hashValues);
    }
 
 } 

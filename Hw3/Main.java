@@ -9,14 +9,10 @@ public class Main {
     String[] magicalArray = FileReader();
     LinearSearch(FileReader());
     BinarySearch(FileReader());
-
+    hashyTime(FileReader());
 
     // TESTS
-    LinkedList list = new LinkedList();
-    for(int i = 0; i < magicalArray.length; i++){
-      list.insert(Hashing.makeHashCode(magicalArray[i]));
-    }
-    list.show();
+
   }
 
   public static void LinearSearch(String[] magicalArray) {
@@ -73,6 +69,13 @@ public class Main {
     int average = total / numSearches;
     System.out.println("Binary Search took a total of " + average + " Comparisons");
 
+  }
+  public static void hashyTime(String[] magicalArray){
+    LinkedList list = new LinkedList();
+    for(int i = 0; i < magicalArray.length; i++){
+      list.insert(Hashing.makeHashCode(magicalArray[i]));
+    }
+    Hashing.hashThat(magicalArray);
   }
 
   public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
