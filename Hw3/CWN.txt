@@ -11,9 +11,9 @@ Linked List
 ?Hashing?
 
 Work In Progress 
-Binary Search Tree
+Hash Table
 
 
 
 Notes
-Oh my does that main function look so much better 
+I JUST SPENT SO MUCH TIME THINK I NEEDED TO MAKE A BINARY SEARCH TREE
