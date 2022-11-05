@@ -8,12 +8,12 @@ Binary Search
 Binary Repeat
 Binary Counting
 Linked List
-?Hashing?
+Hash Table
 
 Work In Progress 
-Hash Table
+Hash Search
 
 
 
 Notes
-I JUST SPENT SO MUCH TIME THINK I NEEDED TO MAKE A BINARY SEARCH TREE
+I Can't figure out how to find an Item in a hash table without just hashing the item

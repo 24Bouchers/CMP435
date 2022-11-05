@@ -26,5 +26,13 @@ public class LinkedList {
     System.out.println(node.data);
 
     }
+
+    public int index(int num){
+        int indexNum = 0;
+        for(int i = 0; i < num; i++){
+        indexNum ++;
+    }
+    return indexNum;
+}
 }
 

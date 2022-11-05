@@ -2,50 +2,51 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
     // FUNCTIONS GOES HERE
     String[] magicalArray = FileReader();
-    LinearSearch(FileReader());
-    BinarySearch(FileReader());
-    hashyTime(FileReader());
-
-    // TESTS
+    LinearSearch(magicalArray);
+    BinarySearch(magicalArray);
+    hashSearch(hashyTime(magicalArray), magicalArray);
 
   }
 
   public static void LinearSearch(String[] magicalArray) {
 
     int total = 0;
-    int numSearches = 42;
+    int NUMSEARCHES = 42;
     // This is set up for how many items were locating
-    for (int i = 0; i < numSearches; i++) {
-      int random_int = (int) Math.floor(Math.random() * (666));
+    for (int i = 0; i < NUMSEARCHES; i++) {
+      int random_int = (int) Math.floor(Math.random() * (666-1));
       String magicItem = magicalArray[random_int];
       // Counter Counts the ammount of comparisons each item makes
       int counter = 0;
       boolean found = false;
       // Looks for the item
       while (found != true) {
-        counter++;
+        
         if (magicItem == magicalArray[counter]) {
           found = true;
           total = total + counter;
         }
+        counter++;
       }
     }
-    int average = total / numSearches;
-    System.out.println("Linear Search took a total of " + average + " Comparisons");
+    int avgDecimal = (total % NUMSEARCHES);
+    int avgWhole = total / NUMSEARCHES;
+    System.out.println("Linear Search took a average of " + avgWhole + "." + avgDecimal + " Comparisons");
   }
 
   public static void BinarySearch(String[] magicalArray) {
     int total = 0;
-    int numSearches = 42;
+    int NUMSEARCHES = 42;
     // This is set up for how many items were locating
-    for (int i = 0; i < numSearches; i++) {
+    for (int i = 0; i < NUMSEARCHES; i++) {
       // Variable Decleration
-      int random_int = (int) Math.floor(Math.random() * (666));
+      int random_int = (int) Math.floor(Math.random() * (666-1));
       String item = magicalArray[random_int];
       int counter = 0;
       int lp = 0;
@@ -66,18 +67,41 @@ public class Main {
       }
       
     }
-    int average = total / numSearches;
-    System.out.println("Binary Search took a total of " + average + " Comparisons");
+    int avgDecimal = total % NUMSEARCHES;
+    int avgWhole = total / NUMSEARCHES;
+    System.out.println("Binary Search took a average of " + avgWhole + "." + avgDecimal + " Comparisons");
 
   }
-  public static void hashyTime(String[] magicalArray){
-    LinkedList list = new LinkedList();
+  
+  public static LinkedList hashyTime(String[] magicalArray){
+    LinkedList magicList = new LinkedList();
     for(int i = 0; i < magicalArray.length; i++){
-      list.insert(Hashing.makeHashCode(magicalArray[i]));
+      magicList.insert(Hashing.makeHashCode(magicalArray[i]));
     }
-    Hashing.hashThat(magicalArray);
+    return magicList;
   }
 
+  public static void hashSearch(LinkedList magicList, String[] magicalArray){
+    int selectedForSearch = 0;
+    int total = 0;
+    int NUMSEARCHES = 42;
+
+    //Selecting Search item
+    for(int i = 0; i < NUMSEARCHES; i ++){
+      int count = 0;
+      selectedForSearch = (i * 2);
+      String item = magicalArray[selectedForSearch];
+      int specialItem = Hashing.makeHashCode(item);
+      if(specialItem == Hashing.makeHashCode(magicalArray[selectedForSearch])){
+        count ++;
+        }
+        total = total + count;
+      }
+      int avgDecimal = total % NUMSEARCHES;
+      int avgWhole = total / NUMSEARCHES;
+      System.out.println("Hash Search took a average of " + avgWhole + "." + avgDecimal + " Comparisons");
+    }
+  
   public static void MergeSort(String[] magicalArray) throws FileNotFoundException {
     int size = magicalArray.length;
     if (size < 2) {
