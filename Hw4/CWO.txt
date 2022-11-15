@@ -1,0 +1,7 @@
+Completed
+File Set UP
+
+Work In Progress
+
+Other
+Added an inventory Check function to list the array (Should of make this ages ago)
