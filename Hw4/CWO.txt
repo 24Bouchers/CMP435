@@ -2,6 +2,7 @@ Completed
 File Set UP
 
 Work In Progress
-
+Graphing with Linked Objects
 Other
+I know Its probably on the sloppy side to have a LL class and a LO class sepperate, but currently having them together doesn't sound fun
 Added an inventory Check function to list the array (Should of make this ages ago)
