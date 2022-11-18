@@ -5,21 +5,27 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
-    String[] magicalArray = FileReader();
-    //InventoryCheck(magicalArray);
+//Part1
     graph();
+
+//Part2
+
+    //String[] magicalArray = FileReader();
+    //InventoryCheck(magicalArray);
   }
 
  
   public static void graph(){
+   //LinkedGraph();
+  }
+  
+  public static void LinkedGraph(){
     LinkedObject seven11 = new LinkedObject();
     for (int i = 1; i < 8; i++) {
       seven11.addVertex(i);
     }
-    seven11.show();
+    //seven11.show();
   }
-  
-
 
 
 
