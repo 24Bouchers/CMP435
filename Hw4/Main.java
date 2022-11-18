@@ -6,12 +6,53 @@ public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
     String[] magicalArray = FileReader();
-    InventoryCheck(magicalArray);
+    //InventoryCheck(magicalArray);
+    graph();
   }
 
  
-
+  public static void graph(){
+    LinkedObject seven11 = new LinkedObject();
+    for (int i = 1; i < 8; i++) {
+      seven11.addVertex(i);
+    }
+    seven11.show();
+  }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public static String[] FileReader() throws FileNotFoundException {
     int fileSize = 0;
