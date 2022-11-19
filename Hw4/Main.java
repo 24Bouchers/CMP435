@@ -10,7 +10,7 @@ public class Main {
 
     // Part2
     loadTree();
-    
+    //StuffCheck(InventorySearch(FileReader()));
 
     
   }
@@ -22,8 +22,10 @@ public class Main {
     head = inventory.insert(head, magicalArray[0]);
     for(int i =1; i < magicalArray.length; i++){
       inventory.insert(head, magicalArray[i]);
+      System.out.println("");
     }
     inventory.printInorder(head);
+
     for(int i =0; i < InventorySearch(FileReader()).length; i++){
       inventory.LocateItem(head, InventorySearch(magicalArray)[i]);
     }
@@ -323,7 +325,7 @@ public class Main {
     String item = "";
     int c = 0;
     // pass the path to the file as a parameter
-    File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw4\\Search.txt");
+    File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw4\\magicitems-find-in-bst.txt");
     Scanner sc0 = new Scanner(file);
     // Find the Ammount of Lines in the file
     while (sc0.hasNextLine()) {
@@ -348,7 +350,11 @@ public class Main {
       System.out.println(magicalArray[i]);
     }
   }
-
+  public static void StuffCheck(String[] listToFind) {
+    for (int i = 0; i < listToFind.length; i++) {
+      System.out.println(listToFind[i]);
+    }
+  }
 
 
 }

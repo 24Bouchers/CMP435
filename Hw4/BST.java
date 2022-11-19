@@ -1,9 +1,8 @@
 
-
 public class BST {
     Component head;
 
-    public Component createNewComponent(String data){
+    public Component createNewComponent(String data) {
         Component component = new Component();
         component.data = data;
         component.left = null;
@@ -22,7 +21,7 @@ public class BST {
             System.out.println("R");
         } else if (component.data.compareToIgnoreCase(data) > 0) {
             component.left = insert(component.left, data);
-            System.out.println("R");
+            System.out.println("L");
         }
         return component;
     }
@@ -35,23 +34,25 @@ public class BST {
         return indexNum;
     }
 
-    void printInorder(Component component)
-    {
+    void printInorder(Component component) {
         if (component == null)
             return;
- 
+
         printInorder(component.left);
         System.out.print(component.data + " ");
         printInorder(component.right);
     }
 
-    void LocateItem(Component component, String itemToFind ){
-        if (component == null)
-        return;
-        if(component.data == itemToFind){
-            System.out.println("Found it");
+    void LocateItem(Component component, String itemToFind) {
+        if (component == null) {
+            return;
+        } else if (component.data == itemToFind) {
+            System.out.println("found it");
+            return;
+        } else {
+
+            LocateItem(component.left, itemToFind);
+            LocateItem(component.right, itemToFind);
         }
-        LocateItem(component.left, itemToFind);
-        LocateItem(component.right, itemToFind);
     }
 }
