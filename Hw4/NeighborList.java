@@ -21,16 +21,19 @@ public class NeighborList {
 
     public void Nshow() {
         Node node = head;
-        while (node.next != null) {
+        if(head != null){
+        
+        while(node.next != null) {
             System.out.print(node.vertex + ", ");
             node = node.next;
         }
         System.out.print(node.vertex);
-
+     }
     }
 
     public void NMatrixList(int length) {
         Node node = head;
+        if(head != null){
         System.out.print("[");
         for (int i = 1; i < length+1; i++) {
             if (i == node.vertex) {
@@ -47,6 +50,7 @@ public class NeighborList {
         }
         System.out.print("]");
     }
+}
 
     public int Nindex() {
         int length = 1;
