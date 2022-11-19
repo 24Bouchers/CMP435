@@ -6,16 +6,16 @@ public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
     // Part1
-    //graph1Operations();
+    graph1Operations();
 
     // Part2
-    loadTree();
+    Part2();
     //StuffCheck(InventorySearch(FileReader()));
 
     
   }
 
-  public static void loadTree() throws FileNotFoundException{
+  public static void Part2() throws FileNotFoundException{
     String[] magicalArray = FileReader();
     BST inventory = new BST();
     Component head = null;
