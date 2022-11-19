@@ -1,6 +1,7 @@
 public class Node {
     int vertex;
     boolean proccessed;
-    LinkedList neighbors = new LinkedList();
+    NeighborList neighbors = new NeighborList();
+    Node nextNeighbor;
     Node next;
 }

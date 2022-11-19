@@ -1,11 +1,13 @@
 Completed
 File Set UP
+ADJ AND MATRIX
 
 Work In Progress
-Graphing with Linked Objects
-Printing Neighboirs
+DFS
+
+
 
 Other
-Scrapped Graph.java - using it as a guide - Trying to alter my Linked List
+OH my lord did ADJ and Matrixs take longer than I wanted them too, but they look super clean!
 I know Its probably on the sloppy side to have a LL class and a LO class sepperate, but currently having them together doesn't sound fun
 Added an inventory Check function to list the array (Should of make this ages ago)

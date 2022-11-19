@@ -16,8 +16,9 @@ public class Main {
 
  
   public static void graph1Operations(){
-    Seven11().show();
-    Seven11().showNeighbors();
+  //Seven11().show();
+    Seven11().adjacencyList();
+    Seven11().MatrixList();
   }
 
  
@@ -27,7 +28,22 @@ public class Main {
     for(int i = 1; i < 8; i++){
       seven11.insert(i);
     }
+    seven11.Edge(1,2);
+    seven11.Edge(1,5);
+    seven11.Edge(1,6);
+    seven11.Edge(2,3);
+    seven11.Edge(2,5);
+    seven11.Edge(2,6);
+    seven11.Edge(3,4);
+    seven11.Edge(4,5);
+    seven11.Edge(5,6);
+    seven11.Edge(5,7);
+    seven11.Edge(6,7);
     return seven11;
+  }
+
+  public void Seven11Neightbors(){
+
   }
 
 

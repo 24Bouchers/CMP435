@@ -1,80 +1,90 @@
 public class LinkedList {
     Node head;
 
-    public void insert(int data){
+    public void insert(int data) {
         Node node = new Node();
         node.vertex = data;
-        node.neighbors = new LinkedList();
+        node.neighbors = new NeighborList();
         node.next = null;
-
-        if (head ==null){
+        node.proccessed = false;
+        
+        if (head == null) {
             head = node;
         } else {
             Node n = head;
-            while(n.next !=null){
-                n = n.next;
-            }
-            n.next = node;
-        }
-    }
-    
-    public void insertNeighbor(Object Node){
-        Node node = new Node();
-        node.neighbors = new LinkedList();
-        node.next = null;
-
-        if (head ==null){
-            head = node;
-        } else {
-            Node n = head;
-            while(n.next !=null){
+            while (n.next != null) {
                 n = n.next;
             }
             n.next = node;
         }
     }
 
-    public void show(){
-    Node node = head;
-    while(node.next != null){
+
+
+    public void show() {
+        Node node = head;
+        while (node.next != null) {
+            System.out.println(node.vertex + ": ");
+            node = node.next;
+        }
         System.out.println(node.vertex);
-        node = node.next;
     }
-    System.out.println(node.vertex);
+
+    public void adjacencyList() {
+        Node node = head;
+        while (node.next != null) {
+            System.out.print(node.vertex + "[");
+            node.neighbors.Nshow();
+            System.out.print("]");
+            node = node.next;
+            System.out.println("");
+        }
+        System.out.print(node.vertex + "[");
+        node.neighbors.Nshow();
+        System.out.print("]");
+    }
+
+    public void MatrixList(){
+        Node node = head;
+        int length = Index();
+        System.out.println("");
+        System.out.println("Matrix: ");
+        while (node.next != null) {
+            node.neighbors.NMatrixList(length);
+            System.out.println(" ");
+            node = node.next;
+        }
 
     }
-    public void showNeighbors(){
-        Node node = head;
-        Node neighbors = head;
-        while(node.next != null){
-            System.out.println(node.vertex);
-            while(neighbors.next != null){
-                System.out.println(node.vertex);
-                neighbors = neighbors.next;
-        }
-        node = node.next;
-    }
-        System.out.println(node.vertex);
-    
-        }
 
-    public void addEdge(int v1 , int v2){
+    public void Edge(int v1, int v2) {
         Node node = head;
-        while(node.vertex != v1){
+        while (node.vertex != v1) {
             node = node.next;
         }
         Node firstPoint = node;
         node = head;
-        while(node.vertex != v2){
+        while (node.vertex != v2) {
             node = node.next;
         }
-        
+
         Node secondPoint = node;
 
-        firstPoint.neighbors.insertNeighbor(secondPoint);
-        secondPoint.neighbors.insertNeighbor(firstPoint);
+        firstPoint.neighbors.Ninsert(secondPoint, v2);
+        secondPoint.neighbors.Ninsert(firstPoint, v1);
+
+    }
+
+    public int Index() {
+        int length = 1;
+        Node node = head;
+        while (node.next != null) {
+            length++;
+            node = node.next;
+        }
+        length++;
+
+        return length;
     }
 
 }
-
-
