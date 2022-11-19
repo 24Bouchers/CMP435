@@ -1,13 +1,12 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
 //Part1
-    graph1();
+  graph1Operations();
 
 //Part2
 
@@ -16,39 +15,21 @@ public class Main {
   }
 
  
-  public static void graph1(){
-   //LinkedGraph();
-    Graph g = new Graph(8);
-    g.addEdge(0, 0);
-    g.addEdge(1,2);
-    g.addEdge(1,5);
-    g.addEdge(1,6);
-    g.addEdge(2,3);
-    g.addEdge(2,5);
-    g.addEdge(2,6);
-    g.addEdge(3,4);
-    g.addEdge(4,5);
-    g.addEdge(5,6);
-    g.addEdge(5,7);
-    g.addEdge(6,7);
-    g.printGraph();
+  public static void graph1Operations(){
+    Seven11().show();
+    Seven11().showNeighbors();
   }
 
-  public static void Matrix(){
-    int vertNum = 7;
-    int arr[][]= { { 1}, { 3, 6, 1 }, { 7, 4, 2 } };
-  }
+ 
   
-  
-  /* public static void LinkedGraph(){
-    LinkedObject seven11 = new LinkedObject();
-    for (int i = 1; i < 8; i++) {
-      seven11.addVertex(i);
+  public static LinkedList Seven11(){
+    LinkedList seven11 = new LinkedList();
+    for(int i = 1; i < 8; i++){
+      seven11.insert(i);
     }
-    //seven11.show();
+    return seven11;
   }
 
-*/
 
 
 

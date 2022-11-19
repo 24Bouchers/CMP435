@@ -1,28 +1,39 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Graph {
-    ArrayList<ArrayList<Integer>> graph;
-    int v;
 
-    Graph(int nodes){
-        v = nodes;
-        graph = new ArrayList<ArrayList<Integer>>();
-        for(int i = 0; i < v; i ++){
+
+
+    Graph(int nodes) {
+
+       
+        for (int i = 0; i < ; i++) {
             graph.add(new ArrayList<Integer>());
         }
     }
-    void addEdge(int v, int v2){
+
+    void addEdge(int v, int v2) {
         graph.get(v).add(v2);
         graph.get(v2).add(v);
     }
-    void printGraph(){
-        for(int i = 1; i < v; i++){
-            System.out.println("Node" + i+ ":");
 
-            for(int x : graph.get(i) ){
-                System.out.println(x);
+    void AdjacencyGraph() {
+        for (int i = 1; i < v; i++) {
+            System.out.print(i);
+            System.out.println(graph.get(i));
 
-            }
         }
     }
-}
+
+    void MatrixGraph() {
+        for (int i = 1; i < v; i++) {
+            Iterator it = graph.iterator();
+            if(it +)
+
+            }
+
+        }
+    }
+
+*/
