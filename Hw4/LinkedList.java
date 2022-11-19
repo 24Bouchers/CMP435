@@ -1,3 +1,5 @@
+import java.util.Queue;
+
 public class LinkedList {
     Node head;
 
@@ -7,7 +9,7 @@ public class LinkedList {
         node.neighbors = new NeighborList();
         node.next = null;
         node.proccessed = false;
-        
+
         if (head == null) {
             head = node;
         } else {
@@ -74,6 +76,24 @@ public class LinkedList {
         secondPoint.neighbors.Ninsert(firstPoint, v1);
 
     }
+    public void runDFS(){
+        Node node = head;
+        DFS(head);
+    }
+
+    public void DFS(Node node){
+        if( node.proccessed == false){
+            System.out.println(node.vertex);
+            node.proccessed = true;
+        }
+        for(int i = 1; i < node.neighbors.Nindex(); i++){
+
+            if( node.proccessed == false){
+                DFS(node);
+            }
+        }
+        }
+    
 
     public int Index() {
         int length = 1;

@@ -1,13 +1,16 @@
 Completed
 File Set UP
 ADJ AND MATRIX
-
+DFS(Kinda I mean the code looks right to me, just most-likely set other things up slightly off)
 Work In Progress
-DFS
+BST
 
 
 
 Other
+I think DFT and BFT might have eluded me with how I set up my Neighbor List. I Think I'd have to redo like 90% of this to make it happen
+and its too late at this point to restart
+
 OH my lord did ADJ and Matrixs take longer than I wanted them too, but they look super clean!
 I know Its probably on the sloppy side to have a LL class and a LO class sepperate, but currently having them together doesn't sound fun
 Added an inventory Check function to list the array (Should of make this ages ago)

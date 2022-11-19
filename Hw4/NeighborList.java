@@ -1,10 +1,12 @@
 public class NeighborList {
     Node head;
+    
 
     public void Ninsert(Object Node, int vertex) {
         Node node = new Node();
         node.vertex = vertex;
         node.next = null;
+        node.proccessed = false;
 
         if (head == null) {
             head = node;
@@ -44,5 +46,16 @@ public class NeighborList {
             }
         }
         System.out.print("]");
+    }
+
+    public int Nindex() {
+        int length = 1;
+        Node node = head;
+        while (node.next != null) {
+            length++;
+            node = node.next;
+        }
+        length++;
+        return length;
     }
 }

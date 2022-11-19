@@ -19,6 +19,7 @@ public class Main {
   //Seven11().show();
     Seven11().adjacencyList();
     Seven11().MatrixList();
+    Seven11().runDFS();
   }
 
  
@@ -42,9 +43,7 @@ public class Main {
     return seven11;
   }
 
-  public void Seven11Neightbors(){
 
-  }
 
 
 
