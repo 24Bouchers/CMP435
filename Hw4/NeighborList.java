@@ -6,7 +6,7 @@ public class NeighborList {
         Node node = new Node();
         node.vertex = vertex;
         node.next = null;
-        node.proccessed = false;
+        node.processed = false;
 
         if (head == null) {
             head = node;

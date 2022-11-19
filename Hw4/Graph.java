@@ -6,7 +6,7 @@ public class Graph {
         node.vertex = data;
         node.neighbors = new NeighborList();
         node.next = null;
-        node.proccessed = false;
+        node.processed = false;
 
         if (head == null) {
             head = node;
@@ -79,13 +79,13 @@ public class Graph {
     }
 
     public void DFS(Node node) {
-        if (node.proccessed == false) {
+        if (node.processed == false) {
             System.out.println(node.vertex);
-            node.proccessed = true;
+            node.processed = true;
         }
         for (int i = 1; i < node.neighbors.Nindex(); i++) {
 
-            if (node.proccessed == false) {
+            if (node.processed == false) {
                 DFS(node);
             }
         }

@@ -1,6 +1,6 @@
 public class Node {
     int vertex;
-    boolean proccessed;
+    boolean processed;
     NeighborList neighbors = new NeighborList();
     Node nextNeighbor;
     Node next;
