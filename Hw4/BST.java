@@ -18,10 +18,10 @@ public class BST {
         }
         if (component.data.compareToIgnoreCase(data) <= 0) {
             component.right = insert(component.right, data);
-            System.out.println("R");
+            System.out.print("R");
         } else if (component.data.compareToIgnoreCase(data) > 0) {
             component.left = insert(component.left, data);
-            System.out.println("L");
+            System.out.print("L");
         }
         return component;
     }
@@ -35,22 +35,27 @@ public class BST {
     }
 
     void printInorder(Component component) {
-        if (component == null)
+        if (component == null){
             return;
-
+        }else {
         printInorder(component.left);
         System.out.print(component.data + " ");
         printInorder(component.right);
+        }
+    }
+
+    void startLocate(String itemToFind){
+        LocateItem( head , itemToFind );
     }
 
     void LocateItem(Component component, String itemToFind) {
-        if (component == null) {
+    // I can't Figure out why the head is == to null
+        if (component == null){
             return;
-        } else if (component.data == itemToFind) {
+        }else if (component.data == itemToFind) {
             System.out.println("found it");
             return;
         } else {
-
             LocateItem(component.left, itemToFind);
             LocateItem(component.right, itemToFind);
         }

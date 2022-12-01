@@ -4,14 +4,22 @@ ADJ AND MATRIX
 DFS(Kinda I mean the code looks right to me, just most-likely set other things up slightly off)
 INPUT OTHER GRAPHS
 BST
+Fix Path Print for BST
+
 
 Work In Progress
-In Order Traversal
+
+I Can't Figure out why the head for my BST is == to null; I belive the logic inside the code functions I just can't get it to run. 
+
+
 
 
 
 
 Other
+
+
+
 I think DFT and BFT might have eluded me with how I set up my Neighbor List. I Think I'd have to redo like 90% of this to make it happen
 and its too late at this point to restart
 

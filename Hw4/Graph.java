@@ -75,20 +75,26 @@ public class Graph {
     }
 
     public void runDFS() {
+        System.out.println("DFS: ");
         DFS(head);
     }
 
     public void DFS(Node node) {
-        if (node.processed == false) {
-            System.out.println(node.vertex);
-            node.processed = true;
-        }
-        for (int i = 1; i < node.neighbors.Nindex(); i++) {
-
+        if (node == null) {
+            return;
+        } else {
             if (node.processed == false) {
-                DFS(node);
+                System.out.print(node.vertex + " ");
+                for (int i = 1; i < node.neighbors.Nindex(); i++) {
+                    if (node.processed == false && node.next != null) {
+                        DFS(node.next);
+                    }
+                }
+                node.processed = true;
             }
+
         }
+
     }
 
     public int Index() {

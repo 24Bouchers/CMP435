@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
-    // Part1
-    graph1Operations();
-
-    // Part2
+    //Comment out Either Part 1 or Part 2 to fully read each part
     Part2();
+    Part1();
+
+
+
     //StuffCheck(InventorySearch(FileReader()));
 
     
@@ -19,15 +20,18 @@ public class Main {
     String[] magicalArray = FileReader();
     BST inventory = new BST();
     Component head = null;
+    //Create BST
     head = inventory.insert(head, magicalArray[0]);
     for(int i =1; i < magicalArray.length; i++){
+      System.out.print(magicalArray[i] + " |: ");
       inventory.insert(head, magicalArray[i]);
-      System.out.println("");
+      System.out.println(" ");
     }
+    //Prints items in order
     inventory.printInorder(head);
-
+    //Item Look Up
     for(int i =0; i < InventorySearch(FileReader()).length; i++){
-      inventory.LocateItem(head, InventorySearch(magicalArray)[i]);
+      inventory.startLocate(InventorySearch(magicalArray)[i]);
     }
   }
 
@@ -36,23 +40,31 @@ public class Main {
 
 
 
-  public static void graph1Operations() {
+  public static void Part1() {
     System.out.println("undirected 7-vertex 11-edge");
     Seven11().adjacencyList();
     Seven11().MatrixList();
     Seven11().runDFS();
+    System.out.println(" ");
     System.out.println("undirected 8-Vertex Full");
     Full8().adjacencyList();
     Full8().MatrixList();
+    Full8().runDFS();
+    System.out.println(" ");
     System.out.println("undirected 63-Vertex Tree (branch factor = 2)");
     Factor64().adjacencyList();
     Factor64().MatrixList();
+    Factor64().runDFS();
+    System.out.println(" ");
     System.out.println("undirected 64-Vertex 72-Edge Erdos-Renyi Random");
     Random72().adjacencyList();
     Random72().MatrixList();
+    Random72().runDFS();
+    System.out.println(" ");
     System.out.println("undirected Zork Map (ground level) w/ 3 disconnected components");
     Zork().adjacencyList();
     Zork().MatrixList();
+    Zork().runDFS();
   }
 
   public static Graph Seven11() {
