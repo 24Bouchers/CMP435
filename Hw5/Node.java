@@ -1,7 +1,9 @@
 public class Node {
     int vertex;
+    int weight;
     boolean processed;
-    NeighborList neighbors = new NeighborList();
+    Edge edges = new Edge();
     Node nextNeighbor;
     Node next;
+    public Edge edge;
 }

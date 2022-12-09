@@ -1,8 +1,10 @@
 COMPLETED
 READING COMMANDS FROM A TEXT FILE. LETS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+Adding edges 
 
 WIP
-Adding edges 
+Debug Adding edges
+
 
 NOTES
 The way I'm reading these commands is kinda jank. but.... it works for the purposes of this so ill take it. Currently works as long as

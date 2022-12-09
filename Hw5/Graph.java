@@ -4,7 +4,7 @@ public class Graph {
     public void insert(int data) {
         Node node = new Node();
         node.vertex = data;
-        node.neighbors = new NeighborList();
+        node.edge = new Edge();
         node.next = null;
         node.processed = false;
 
@@ -32,31 +32,17 @@ public class Graph {
         Node node = head;
         while (node.next != null) {
             System.out.print(node.vertex + "[");
-            node.neighbors.Nshow();
+            node.edge.ShowEdges();
             System.out.print("]");
             node = node.next;
             System.out.println("");
         }
         System.out.print(node.vertex + "[");
-        node.neighbors.Nshow();
+        node.edge.ShowEdges();
         System.out.print("]");
     }
 
-    public void MatrixList() {
-        Node node = head;
-        int length = Index();
-        System.out.println("");
-        System.out.println("Matrix: ");
-        while (node.next != null) {
-            if (node.neighbors != null) {
-                node.neighbors.NMatrixList(length);
-                System.out.println(" ");
-                node = node.next;
-            }
-        }
-    }
-
-    public void edge(int v1, int v2) {
+    public void edge(int v1, int v2, int weight) {
         Node node = head;
         while (node.vertex != v1) {
             node = node.next;
@@ -68,32 +54,7 @@ public class Graph {
         }
 
         Node secondPoint = node;
-
-        firstPoint.neighbors.Ninsert(secondPoint, v2);
-        secondPoint.neighbors.Ninsert(firstPoint, v1);
-
-    }
-
-    public void runDFS() {
-        System.out.println("DFS: ");
-        DFS(head);
-    }
-
-    public void DFS(Node node) {
-        if (node == null) {
-            return;
-        } else {
-            if (node.processed == false) {
-                System.out.print(node.vertex + " ");
-                for (int i = 1; i < node.neighbors.Nindex(); i++) {
-                    if (node.processed == false && node.next != null) {
-                        DFS(node.next);
-                    }
-                }
-                node.processed = true;
-            }
-
-        }
+        firstPoint.edge.Edgeinsert(secondPoint, v2, weight);
 
     }
 
