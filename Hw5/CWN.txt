@@ -1,0 +1,9 @@
+COMPLETED
+READING COMMANDS FROM A TEXT FILE. LETS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+WIP
+Adding edges 
+
+NOTES
+The way I'm reading these commands is kinda jank. but.... it works for the purposes of this so ill take it. Currently works as long as
+no vertex is a 10 or higher so I'll fix that when I add edges
