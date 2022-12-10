@@ -21,6 +21,8 @@ public class List {
         }
     }
 
+    
+
     public void Show() {
         Spice spice = head;
         if (spice != null) {
@@ -69,6 +71,8 @@ public class List {
         System.out.println(nameMax);
         return TotalPlunder;
     }
+
+    
 
     void Reset() {
         Spice spice = head;

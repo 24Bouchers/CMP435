@@ -38,6 +38,7 @@ public class Main {
             char weight1 = ' ';
             char weight2 = ' ';
             String weightString = "";
+
             textCommand = sc1.nextLine();
             if (textCommand != "") {
                 // Check for comments
@@ -120,10 +121,18 @@ public class Main {
             if (textCommand == "") {
                 System.out.println("------------------------------------------------------------");
             }
+            
         }
 
         sc1.close();
+    }
 
+    void SSSP(Graph graph, int edgeCounter, int vertexCounter) {
+        int[] edges = new int[edgeCounter];
+        for (int i = 0; i < graph.edge.EdgeIndex(); i++) {
+            edges[i] = 100000000;
+        }
+        graph.adjacencyList();
     }
 
     static void Spice() throws FileNotFoundException {
@@ -164,7 +173,6 @@ public class Main {
             bagSizeString = "";
             spiceName = "";
             int TotalPlunder = 0;
-
 
             if (textCommand != "") {
 
@@ -230,15 +238,15 @@ public class Main {
                     bagSizeFloat = Float.parseFloat(bagSizeString);
                     bagSize = Math.round(bagSizeFloat);
                     System.out.println("An optimized knapsack size holds: " + bagSize + ": ");
-                    for(int i = 0; i < bagSize; i++){
-                    TotalPlunder = TotalPlunder + spiceList.Snatch();
+                    for (int i = 0; i < bagSize; i++) {
+                        TotalPlunder = TotalPlunder + spiceList.Snatch();
                     }
-                    System.out.println("Valuing: " +TotalPlunder + " Gold Pieces");
-
+                    System.out.println("Valuing: " + TotalPlunder + " Gold Pieces");
 
                 }
-                spiceList.Reset();  
+                spiceList.Reset();
             }
         } // End of File Read
+        sc2.close();
     } // End of Bag Function
 }

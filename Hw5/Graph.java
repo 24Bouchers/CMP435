@@ -42,6 +42,16 @@ public class Graph {
         System.out.print("]");
     }
 
+    public void SSSP() {
+        Node node = head;
+        if ( node != null) {
+            while (node.next != null) {
+                node = node.next;
+            }
+        }
+    }
+
+
     public void edge(int v1, int v2, int weight) {
         Node node = head;
         while (node.vertex != v1) {
