@@ -119,7 +119,7 @@ public class Main {
             }
             // This is where we call SSSP
             if (textCommand == "") {
-                System.out.println("------------------------------------------------------------");
+                System.out.println(" "); //Place SSSP Here
             }
             
         }
