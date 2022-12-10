@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        FileReader();
+        GraphPathing();
+        Spice();
     }
 
-    public static void FileReader() throws FileNotFoundException {
+    public static void GraphPathing() throws FileNotFoundException {
         // PLACE HOLDER VALUES
         String textCommand = "";
         Graph graph = new Graph();
@@ -40,15 +41,15 @@ public class Main {
             textCommand = sc1.nextLine();
             if (textCommand != "") {
                 // Check for comments
+
                 if ((textCommand.charAt(0)) == '-') {
 
                     System.out.println(textCommand);
-                    sc1.nextLine();
                 }
                 // Checks to see if we are making a new graph
                 if (textCommand.charAt(0) == 'n') {
+
                     graph = new Graph();
-                    sc1.nextLine();
                 }
                 if (textCommand.charAt(0) != '-' && textCommand.charAt(0) != 'n') {
                     // Checksto see if we are adding a vertex
@@ -95,8 +96,8 @@ public class Main {
                         toVertex = Integer.parseInt(toVertexString);
 
                         // What is the Weight of the Path
-                        weight1 = textCommand.charAt(commandLength -2);
-                        weight2 = textCommand.charAt(commandLength -1);
+                        weight1 = textCommand.charAt(commandLength - 2);
+                        weight2 = textCommand.charAt(commandLength - 1);
 
                         if (weight1 == ' ') {
                             weightString = String.valueOf(weight2);
@@ -112,11 +113,102 @@ public class Main {
                         totalWeight = Integer.parseInt(weightString);
                         graph.edge(startVertex, toVertex, totalWeight);
                     }
+
                 }
+            }
+            // This is where we call SSSP
+            if (textCommand == "") {
+                System.out.println("------------------------------------------------------------");
             }
         }
 
         sc1.close();
+
+    }
+
+    static void Spice() throws FileNotFoundException {
+        File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw5\\spice.txt");
+        Scanner sc2 = new Scanner(file);
+        // Array Filler
+        String textCommand = "";
+        String spiceName = "";
+        String priceAsString = "";
+        String totalAmountAsString= "";
+        float totalAmmount = 0;
+        float totalprice = 0;
+        int haltA = 0;
+        int haltB = 0;
+        int haltC = 0;
+        while (sc2.hasNextLine()) {
+            textCommand = sc2.nextLine();
+            int a = 13;
+            int b = a;
+            haltA = 0;
+            haltB = 0;
+            haltC = 0;
+            priceAsString = "";
+            spiceName = "";
+            totalAmountAsString= "";
+            totalprice = 0;
+            totalAmmount = 0;
+            if (textCommand != "") {
+
+                if (textCommand.charAt(0) == '-') {
+                    System.out.println(textCommand);
+                }
+                if (textCommand.charAt(0) == 's') {
+                    while (haltA == 0) {
+                        if (textCommand.charAt(a) == ';') {
+
+                            haltA = -1;
+                        } else {
+                            spiceName = spiceName + textCommand.charAt(a);
+                        }
+                        a++;
+                    }
+
+                    while (textCommand.charAt(a) != '=') {
+                        a++;
+                    }
+                    a++;
+                    b = a;
+                    while (haltB != -1) {
+                        if (textCommand.charAt(b) == ';') {
+                            haltB = -1;
+                        } else {
+                            priceAsString = priceAsString + textCommand.charAt(b);
+                        }
+                        b++;
+                    }
+                    totalprice = Float.parseFloat(priceAsString);
+
+                    a = b;
+
+
+
+                    while (textCommand.charAt(a) != '=') {
+                        a++;
+                    }
+                    b = a;
+                    b++;
+                    while (haltC != -1) {
+                        if (textCommand.charAt(b) == ';') {
+                            haltC = -1;
+                        } else {
+                            totalAmountAsString = totalAmountAsString + textCommand.charAt(b);
+                        }
+                        b++;
+                    }
+                    totalAmmount = Float.parseFloat(totalAmountAsString);
+
+                    System.out.print(spiceName + ": ");
+                    System.out.print("$" + totalprice + ", ");
+                    System.out.print(totalAmmount);
+                    System.out.println("");
+                }
+            }
+
+        }
 
     }
 }
