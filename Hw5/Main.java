@@ -129,28 +129,43 @@ public class Main {
     static void Spice() throws FileNotFoundException {
         File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw5\\spice.txt");
         Scanner sc2 = new Scanner(file);
-        // Array Filler
-        String textCommand = "";
-        String spiceName = "";
-        String priceAsString = "";
-        String totalAmountAsString= "";
-        float totalAmmount = 0;
-        float totalprice = 0;
+        List spiceList = new List();
+        String textCommand;
+        String spiceName;
+        String priceAsString;
+        String totalAmountAsString;
+        String bagSizeString;
+        float totalAmmountFloat;
+        float totalpriceFloat;
+        int totalAmmount;
+        int totalprice;
         int haltA = 0;
         int haltB = 0;
         int haltC = 0;
+        float bagSizeFloat;
+        int bagSize;
+        int a;
+        int b;
+
         while (sc2.hasNextLine()) {
             textCommand = sc2.nextLine();
-            int a = 13;
-            int b = a;
+            a = 13;
+            b = a;
             haltA = 0;
             haltB = 0;
             haltC = 0;
             priceAsString = "";
             spiceName = "";
-            totalAmountAsString= "";
+            totalAmountAsString = "";
             totalprice = 0;
             totalAmmount = 0;
+            bagSize = 0;
+            bagSizeFloat = 0;
+            bagSizeString = "";
+            spiceName = "";
+            int TotalPlunder = 0;
+
+
             if (textCommand != "") {
 
                 if (textCommand.charAt(0) == '-') {
@@ -180,11 +195,10 @@ public class Main {
                         }
                         b++;
                     }
-                    totalprice = Float.parseFloat(priceAsString);
+                    totalpriceFloat = Float.parseFloat(priceAsString);
+                    totalprice = Math.round(totalpriceFloat);
 
                     a = b;
-
-
 
                     while (textCommand.charAt(a) != '=') {
                         a++;
@@ -199,16 +213,32 @@ public class Main {
                         }
                         b++;
                     }
-                    totalAmmount = Float.parseFloat(totalAmountAsString);
-
-                    System.out.print(spiceName + ": ");
-                    System.out.print("$" + totalprice + ", ");
-                    System.out.print(totalAmmount);
-                    System.out.println("");
+                    totalAmmountFloat = Float.parseFloat(totalAmountAsString);
+                    totalAmmount = Math.round(totalAmmountFloat);
+                    spiceList.insert(spiceName, totalAmmount, totalprice);
+                    spiceName = " ";
+                    totalAmmount = 0;
+                    totalprice = 0;
                 }
+
+                if (textCommand.charAt(0) == 'k') {
+                    int c = 20;
+                    while (textCommand.charAt(c) != ';') {
+                        bagSizeString = bagSizeString + textCommand.charAt(c);
+                        c++;
+                    }
+                    bagSizeFloat = Float.parseFloat(bagSizeString);
+                    bagSize = Math.round(bagSizeFloat);
+                    System.out.println("An optimized knapsack size holds: " + bagSize + ": ");
+                    for(int i = 0; i < bagSize; i++){
+                    TotalPlunder = TotalPlunder + spiceList.Snatch();
+                    }
+                    System.out.println("Valuing: " +TotalPlunder + " Gold Pieces");
+
+
+                }
+                spiceList.Reset();  
             }
-
-        }
-
-    }
+        } // End of File Read
+    } // End of Bag Function
 }

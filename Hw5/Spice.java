@@ -1,7 +1,9 @@
 public class Spice {
     String name;
-    float ammount;
-    float price;
-    float unitprice;
+    int ammount;
+    int totalprice;
+    int unitprice;
+    int resetValue;
+    Spice next;
     
 }

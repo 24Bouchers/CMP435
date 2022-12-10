@@ -1,11 +1,12 @@
 COMPLETED
 READING COMMANDS FROM A TEXT FILE. LETS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 Adding edges 
-
-WIP
 Debug Adding edges
 
+WIP
+Spcies is almost working!
 
 NOTES
+I Don't know why the Spice program is ignoring red and green
 The way I'm reading these commands is kinda jank. but.... it works for the purposes of this so ill take it. Currently works as long as
 no vertex is a 10 or higher so I'll fix that when I add edges
