@@ -128,12 +128,12 @@ public class Main {
     }
 
     void SSSP(Graph graph, int edgeCounter, int vertexCounter) {
-        int[] edges = new int[edgeCounter];
-        for (int i = 0; i < graph.edge.EdgeIndex(); i++) {
-            edges[i] = 100000000;
-        }
-        graph.adjacencyList();
+        int D[];
+        int numvertex;
+        int BIGINT = 10000;
     }
+
+
 
     static void Spice() throws FileNotFoundException {
         File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Hw5\\spice.txt");
