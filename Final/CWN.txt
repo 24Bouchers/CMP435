@@ -1,0 +1,14 @@
+Completed 
+Set Up a Node class for residents
+Set up a Node class for hospitals
+
+
+WIP
+File Reader for Data.text
+
+
+
+Notes
+I'm Currently Trying to figure out how I want to Store the hospitals/residents.
+I want to use the LinkedList package as its simplier and I can ensure theres no bugs in it from my ends
+But using my Lists I can personalise it/ I know how it works 

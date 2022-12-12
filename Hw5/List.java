@@ -21,14 +21,12 @@ public class List {
         }
     }
 
-    
-
     public void Show() {
         Spice spice = head;
         if (spice != null) {
 
             while (spice.next != null) {
-                System.out.print(spice.name + ": " + spice.totalprice + spice.ammount );
+                System.out.print(spice.name + ": " + spice.totalprice + spice.ammount);
                 spice = spice.next;
             }
             System.out.println(spice.name + ".");
@@ -71,8 +69,6 @@ public class List {
         System.out.println(nameMax);
         return TotalPlunder;
     }
-
-    
 
     void Reset() {
         Spice spice = head;
