@@ -3,9 +3,10 @@ Set Up a Node class for residents
 Set up a Node class for hospitals
 File Reader for Data.text
 Resident Have Prefs
+Hospitals Have Prefs
+Matches Init
 
 WIP
-File Reader for Data.txt's Prefs
 
 
 

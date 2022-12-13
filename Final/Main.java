@@ -11,8 +11,10 @@ public class Main {
     }
 
     public static void FileReader() throws FileNotFoundException {
+        boolean debug = false;
         String textCommand = "";
         int resCounter = 0;
+        int HosCounter = 0;
         Integer Pid = 0;
         ResList rList = new ResList();
         HosList hList = new HosList();
@@ -24,9 +26,6 @@ public class Main {
             int charCounter = 1;
             int id = 0;
             String stringCounter = " ";
-            if (textCommand.charAt(0) == '-') {
-                System.out.println(textCommand);
-            }
             if (textCommand.charAt(0) == 'r') {
 
                 while (textCommand.charAt(charCounter) != ':') {
@@ -86,19 +85,73 @@ public class Main {
                     }
                     id = Integer.parseInt(stringCounter.trim());
                     Pid = Integer.valueOf(id);
+                     //stest(resCounter + " | " + Pid);
                     rList.PrefInsert(resCounter, Pid);
 
                 }
             }
+            if (textCommand.charAt(0) == 'h') {
+                HosCounter++;
+                while(textCommand.charAt(charCounter) != ':'){
+                    charCounter++;
+                }
+                charCounter++;
+                charCounter++;
+                while(textCommand.charAt(charCounter) != ' '){
+                    stringCounter = stringCounter + textCommand.charAt(charCounter);
+                    charCounter++;
+                }
+                id = Integer.parseInt(stringCounter.trim());
+                hList.Init(HosCounter, id, debug);
+
+                while(textCommand.charAt(charCounter) != '-'){
+                    charCounter++;
+                }
+                charCounter++;
+                charCounter++;
+                while (charCounter < cLength) {
+                    Pid = 0;
+                    while (textCommand.charAt(charCounter) == ' ' || textCommand.charAt(charCounter) == 'r') {
+                        charCounter++;
+                        id = 0;
+                        Pid = 0;
+                        stringCounter = "";
+                    }
+
+                    while (charCounter < cLength
+                            && (textCommand.charAt(charCounter) != ' ' && textCommand.charAt(charCounter) != 'r')) {
+                        stringCounter = stringCounter + textCommand.charAt(charCounter);
+                        charCounter++;
+                    }
+                    id = Integer.parseInt(stringCounter.trim());
+                    Pid = Integer.valueOf(id);
+                    //stest(HosCounter + " | " + Pid);
+                    hList.PrefInsert(HosCounter, Pid);
+
+                }
+            }
         }
-        rList.Show();
-        rList.PShow();
-        hList.Show();
+
+        inputTest(rList, hList);
+        rList.Init(debug);
         sc1.close();
         sc2.close();
     }
 
     // Prints the string input
+
+
+
+
+    public static void inputTest(ResList rList, HosList hList){
+        //rList.Show();
+        rList.PShow();
+        System.out.println();
+        System.out.println();
+        stest("-------------------------");
+        //hList.Show();
+        hList.PShow();
+    }
 
     public static void stest(String string) {
         System.out.println(string);

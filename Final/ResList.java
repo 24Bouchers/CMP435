@@ -20,6 +20,24 @@ public class ResList {
         }
     }
 
+    public void Init(Boolean debug){
+        Res res = head;
+        if (res != null) {
+
+            while (res.next != null) {
+                res.match = new int[1];
+                if(debug){
+                System.out.println("Resident Matches Initialized");
+                }
+                res = res.next;
+            }
+            res.match = new int[1];
+            if(debug){
+            System.out.println("Resident Matches Initialized");
+            }
+        }
+    }
+
     public void PrefInsert(int resId, Integer hosId) {
         Res res = head;
         if (head != null) {
@@ -35,18 +53,18 @@ public class ResList {
         if (res != null) {
 
             while (res.next != null) {
+                System.out.println();
                 System.out.println("r" + res.id + ": ");
                 for (Integer i : res.prefs) {
-                    System.out.println(i + ", ");
+                    System.out.print(i + ", ");
                   }
-                System.out.println("----------------------");
                 res = res.next;
             }
+            System.out.println();
             System.out.println("r" + res.id + ": ");
                 for (Integer i : res.prefs) {
-                    System.out.println(i + ", ");
+                    System.out.print(i + ", ");
                   }
-            System.out.println("----------------------");
 
         }
 
