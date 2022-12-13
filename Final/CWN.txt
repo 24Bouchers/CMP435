@@ -11,3 +11,6 @@ File Reader for Data.txt's Prefs
 Notes
 HOW DO I STORE THE PREFS
 
+Questions to Ask Prof:
+How Do I store the Prefs (Am I doing this write)
+How to Deterime if thiers a better match 
