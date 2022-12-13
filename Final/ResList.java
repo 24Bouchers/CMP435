@@ -4,7 +4,7 @@ public class ResList {
     public void insert(int id) {
         Res res = new Res();
         res.id = id;
-        Res.prefs = new RPrefList();
+        res.prefs = new RPrefList();
         res.next = null;
 
         if (head == null) {
@@ -18,7 +18,34 @@ public class ResList {
         }
     }
 
+    public void PrefInsert(int resId, int hosId){
+        Res res = head;
+        if (head == null) {
+            head = res;
+            System.out.println("Test");
+        }
+        while(res.id != resId){
+            res = res.next;
+        }
+        res.prefs.RPrefinsert(hosId);
+    }
+    
 
+    public void PShow(){
+        Res res = head;
+        if (res != null) {
+
+            while (res.next != null) {
+                System.out.print("r" + res.id + ": ");
+                res.prefs.RPrefShow();
+                res = res.next;
+            }
+
+            System.out.println("r" + res.id + ": ");
+            res.prefs.RPrefShow();
+        }
+        
+    }
     
     public void Show() {
         Res res = head;

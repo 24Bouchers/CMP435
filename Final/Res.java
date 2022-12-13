@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Res {
     int id;
-    static RPrefList prefs;
+    RPrefList prefs;
     ArrayList<Hos> match;
     Res next;
     
