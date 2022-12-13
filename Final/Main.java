@@ -12,6 +12,8 @@ public class Main {
 
     public static void FileReader() throws FileNotFoundException {
         String textCommand = "";
+        int resCounter = 0;
+        Integer Pid = 0;
         ResList rList = new ResList();
         HosList hList = new HosList();
         File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Final\\data.txt");
@@ -34,7 +36,7 @@ public class Main {
 
                 id = Integer.parseInt(stringCounter.trim());
                 // itest(id);
-                hList.insert(id);
+                rList.insert(id);
 
             }
 
@@ -59,7 +61,7 @@ public class Main {
 
             int id = 0;
             int cLength = textCommand.length();
-            int resCounter = 0;
+
             String stringCounter = " ";
 
             if (textCommand.charAt(0) == 'r') {
@@ -68,25 +70,29 @@ public class Main {
                     charCounter++;
                 }
                 charCounter++;
-
                 while (charCounter < cLength) {
+                    Pid = 0;
                     while (textCommand.charAt(charCounter) == ' ' || textCommand.charAt(charCounter) == 'h') {
                         charCounter++;
+                        id = 0;
+                        Pid = 0;
+                        stringCounter = "";
                     }
 
                     while (charCounter < cLength
                             && (textCommand.charAt(charCounter) != ' ' && textCommand.charAt(charCounter) != 'h')) {
                         stringCounter = stringCounter + textCommand.charAt(charCounter);
-
                         charCounter++;
                     }
-
                     id = Integer.parseInt(stringCounter.trim());
-                    rList.PrefInsert(resCounter, id);
+                    Pid = Integer.valueOf(id);
+                    rList.PrefInsert(resCounter, Pid);
+
                 }
             }
         }
         rList.Show();
+        rList.PShow();
         hList.Show();
         sc1.close();
         sc2.close();

@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class ResList {
     Res head;
 
     public void insert(int id) {
         Res res = new Res();
         res.id = id;
-        res.prefs = new RPrefList();
+        res.prefs = new ArrayList<Integer>();
         res.next = null;
 
         if (head == null) {
@@ -18,35 +20,38 @@ public class ResList {
         }
     }
 
-    public void PrefInsert(int resId, int hosId){
+    public void PrefInsert(int resId, Integer hosId) {
         Res res = head;
-        if (head == null) {
-            head = res;
-            System.out.println("Test");
+        if (head != null) {
+            while (res.id != resId) {
+                res = res.next;
+            }
+            res.prefs.add(hosId);
         }
-        while(res.id != resId){
-            res = res.next;
-        }
-        res.prefs.RPrefinsert(hosId);
     }
-    
 
-    public void PShow(){
+    public void PShow() {
         Res res = head;
         if (res != null) {
 
             while (res.next != null) {
-                System.out.print("r" + res.id + ": ");
-                res.prefs.RPrefShow();
+                System.out.println("r" + res.id + ": ");
+                for (Integer i : res.prefs) {
+                    System.out.println(i + ", ");
+                  }
+                System.out.println("----------------------");
                 res = res.next;
             }
-
             System.out.println("r" + res.id + ": ");
-            res.prefs.RPrefShow();
+                for (Integer i : res.prefs) {
+                    System.out.println(i + ", ");
+                  }
+            System.out.println("----------------------");
+
         }
-        
+
     }
-    
+
     public void Show() {
         Res res = head;
         if (res != null) {

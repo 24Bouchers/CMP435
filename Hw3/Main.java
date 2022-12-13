@@ -8,6 +8,7 @@ public class Main {
     String[] magicalArray = FileReader();
     LinearSearch(magicalArray);
     BinarySearch(magicalArray);
+    
     hashSearch(hashyTime(magicalArray), magicalArray);
   }
 
