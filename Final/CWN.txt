@@ -12,3 +12,50 @@ Notes
 I'm Currently Trying to figure out how I want to Store the hospitals/residents.
 I want to use the LinkedList package as its simplier and I can ensure theres no bugs in it from my ends
 But using my Lists I can personalise it/ I know how it works 
+
+
+            if (textCommand.charAt(0) == 'h') {
+                while (textCommand.charAt(charCounter) != ':') {
+                    stringCounter = stringCounter + textCommand.charAt(charCounter);
+                    charCounter++;
+                }
+                
+                Fid = Float.parseFloat(stringCounter);
+                id = Math.round(Fid);
+                // itest(id);
+                hList.insert(id);
+
+            }
+
+
+ Scanner sc2 = new Scanner(file);
+        /* */ while (sc2.hasNextLine()) {
+            textCommand = sc2.nextLine();
+            int charCounter = 1;
+            float Fid;
+            int id = 0;
+            int cLength = textCommand.length();
+            String stringCounter = " ";
+            if (textCommand.charAt(0) == '-') {
+                System.out.println(textCommand);
+            }
+            if (textCommand.charAt(0) == 'r') {
+                while (textCommand.charAt(charCounter) != ':') {
+                    charCounter++;
+                }
+                charCounter++;
+                charCounter++;
+                while (charCounter < cLength) {
+                    while (textCommand.charAt(charCounter) == ' ' || textCommand.charAt(charCounter) == 'h') {
+                        charCounter++;
+                    }
+                    while (textCommand.charAt(charCounter) != ' ' || textCommand.charAt(charCounter) != 'h') {
+                        stringCounter = stringCounter + textCommand.charAt(charCounter);
+                        charCounter++;
+                    }
+                    Fid = Float.parseFloat(stringCounter);
+                    id = Math.round(Fid);
+                    rList.PrefInsert(id);
+                }
+            }
+        }

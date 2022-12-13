@@ -8,44 +8,66 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         FileReader();
+
     }
 
     public static void FileReader() throws FileNotFoundException {
         String textCommand = "";
-        LinkedList<Res> Residents = new LinkedList<Res>();
-        LinkedList<Hos> Hospitals = new LinkedList<Hos>();
+        ResList rList = new ResList();
+        HosList hList = new HosList();
         File file = new File("C:\\Users\\Owner\\Documents\\GitHub\\CMP435\\Final\\data.txt");
         Scanner sc1 = new Scanner(file);
         // Array Filler
         while (sc1.hasNextLine()) {
             textCommand = sc1.nextLine();
             int charCounter = 1;
-            int charCounter2 = 1;
-            float Fid;
+            float Fid = 0;
             int id = 0;
             String stringCounter = " ";
             if (textCommand.charAt(0) == '-') {
                 System.out.println(textCommand);
             }
-            if(textCommand.charAt(0) == 'r'){
-                while(textCommand.charAt(charCounter) != ':' ){
+            if (textCommand.charAt(0) == 'r') {
+
+                while (textCommand.charAt(charCounter) != ':') {
                     stringCounter = stringCounter + textCommand.charAt(charCounter);
-                    charCounter ++;
+                    charCounter++;
                 }
+                
+                id = Integer.parseInt(stringCounter.trim());
+                // itest(id);
+                hList.insert(id);
+
+            }
+
+            if (textCommand.charAt(0) == 'h') {
+                while (textCommand.charAt(charCounter) != ':') {
+                    stringCounter = stringCounter + textCommand.charAt(charCounter);
+                    charCounter++;
+                }
+                
                 Fid = Float.parseFloat(stringCounter);
                 id = Math.round(Fid);
-                //itest(id);                
+                // itest(id);
+                hList.insert(id);
+
             }
+            //stest(textCommand);
         }
+        
+        rList.Show();
+        hList.Show();
+
     }
 
+    // Prints the string input
 
-    //Prints the string input
-    public static void stest(String string){
+    public static void stest(String string) {
         System.out.println(string);
     }
-    //prints the intput 
-    public static void itest(int num){
+
+    // prints the intput
+    public static void itest(int num) {
         System.out.println(num);
 
     }
