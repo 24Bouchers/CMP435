@@ -140,7 +140,8 @@ public class Main {
 
     // Prints the string input
 
-
+    public static void match(ResList rList, HosList hList){
+    }
 
 
     public static void inputTest(ResList rList, HosList hList){

@@ -83,7 +83,11 @@ public class ResList {
 
         }
     }
+/*
+    public Res select(){
 
+    }
+*/
     public int Index() {
         int length = 1;
         Res res = head;

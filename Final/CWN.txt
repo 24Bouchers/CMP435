@@ -11,8 +11,7 @@ WIP
 
 
 Notes
-
+What does R has a non empty list mean
 
 Questions to Ask Prof:
-How Do I store the Prefs (Am I doing this right)
 How to Deterime if thiers a better match 
