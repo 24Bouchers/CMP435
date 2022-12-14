@@ -20,18 +20,28 @@ public class ResList {
         }
     }
 
+    public Res getRes(int id){
+        Res res = head;
+        while (res.id != id){
+            res = res.next;
+        }
+        return res;
+    }
+
     public void Init(Boolean debug){
         Res res = head;
         if (res != null) {
 
             while (res.next != null) {
                 res.match = new int[1];
+                res.match[0] = -1;
                 if(debug){
                 System.out.println("Resident Matches Initialized");
                 }
                 res = res.next;
             }
             res.match = new int[1];
+            res.match[0] = -1;
             if(debug){
             System.out.println("Resident Matches Initialized");
             }

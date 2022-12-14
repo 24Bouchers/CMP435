@@ -8,6 +8,7 @@ public class HosList {
         hos.id = id;
         hos.prefs = new ArrayList<Integer>();
         hos.next = null;
+        
         if (head == null) {
             head = hos;
         } else {
@@ -19,18 +20,56 @@ public class HosList {
         }
     }
 
+    public Hos getHos(int id) {
+        Hos hos = head;
+        while (hos.id != id) {
+            hos = hos.next;
+        }
+        return hos;
+    }
+
+    public int checkSpace(int id){
+        Hos hos = head;
+        int openSpaces = 0;
+        while (hos.id != id) {
+            hos = hos.next;
+        }
+        for(int i = 0; i < hos.matches.length; i++){
+            if(hos.matches[i] == -1){
+                openSpaces ++;
+            }
+        }
+        return openSpaces;
+    }
+
+    public void match(int hosId, int resId){
+        Hos hos = head;
+        while (hos.id != hosId) {
+            hos = hos.next;
+        }
+        for(int i = 0; i < hos.matches.length; i++){
+            if(hos.matches[i] == -1){
+                hos.matches[i] = resId;
+                i = hos.matches.length;
+            }
+        }
+    }
+
     public void Init(int hosId, int size, boolean debug) {
         Hos hos = head;
         if (head != null) {
             while (hos.id != hosId) {
-                hos.matches = new int[size];
-                if (debug) {
-                    System.out.println("Hospital " + hosId + " Initialized");
-                }
+
                 hos = hos.next;
 
             }
             hos.matches = new int[size];
+            if(debug){
+                System.out.println("Size: " + size);
+            }
+            for (int i = 0; i < hos.matches.length; i++) {
+                hos.matches[i] = -1;
+            }
             if (debug) {
                 System.out.println("Hospital " + hosId + " Initialized");
             }

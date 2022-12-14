@@ -85,26 +85,26 @@ public class Main {
                     }
                     id = Integer.parseInt(stringCounter.trim());
                     Pid = Integer.valueOf(id);
-                     //stest(resCounter + " | " + Pid);
+                    // stest(resCounter + " | " + Pid);
                     rList.PrefInsert(resCounter, Pid);
 
                 }
             }
             if (textCommand.charAt(0) == 'h') {
                 HosCounter++;
-                while(textCommand.charAt(charCounter) != ':'){
+                while (textCommand.charAt(charCounter) != ':') {
                     charCounter++;
                 }
                 charCounter++;
                 charCounter++;
-                while(textCommand.charAt(charCounter) != ' '){
+                while (textCommand.charAt(charCounter) != ' ') {
                     stringCounter = stringCounter + textCommand.charAt(charCounter);
                     charCounter++;
                 }
                 id = Integer.parseInt(stringCounter.trim());
                 hList.Init(HosCounter, id, debug);
 
-                while(textCommand.charAt(charCounter) != '-'){
+                while (textCommand.charAt(charCounter) != '-') {
                     charCounter++;
                 }
                 charCounter++;
@@ -125,7 +125,7 @@ public class Main {
                     }
                     id = Integer.parseInt(stringCounter.trim());
                     Pid = Integer.valueOf(id);
-                    //stest(HosCounter + " | " + Pid);
+                    // stest(HosCounter + " | " + Pid);
                     hList.PrefInsert(HosCounter, Pid);
 
                 }
@@ -136,21 +136,31 @@ public class Main {
         rList.Init(debug);
         sc1.close();
         sc2.close();
-    }
+
+        // Time to make matacehes
+        System.out.println();
+        System.out.println("_____________________________________");
+        int resItteratior = 1;
+            while (rList.getRes(resItteratior).next != null && rList.getRes(resItteratior).match[0] == -1) {
+                if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(0)) > 0) {
+                    rList.getRes(resItteratior).match[0] = rList.getRes(resItteratior).prefs.get(0);
+                    hList.match(rList.getRes(resItteratior).prefs.get(0), resItteratior);
+                }
+                System.out.println("R" + resItteratior + " Is matched with: " + rList.getRes(resItteratior).match[0]);
+                resItteratior++;
+            }
+        }
+    
 
     // Prints the string input
 
-    public static void match(ResList rList, HosList hList){
-    }
-
-
-    public static void inputTest(ResList rList, HosList hList){
-        //rList.Show();
+    public static void inputTest(ResList rList, HosList hList) {
+        // rList.Show();
         rList.PShow();
         System.out.println();
         System.out.println();
         stest("-------------------------");
-        //hList.Show();
+        // hList.Show();
         hList.PShow();
     }
 
