@@ -149,6 +149,11 @@ public class Main {
                 System.out.println("R" + resItteratior + " Is matched with: " + rList.getRes(resItteratior).match[0]);
                 resItteratior++;
             }
+            if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(0)) > 0) {
+                rList.getRes(resItteratior).match[0] = rList.getRes(resItteratior).prefs.get(0);
+                hList.match(rList.getRes(resItteratior).prefs.get(0), resItteratior);
+            }
+            System.out.println("R" + resItteratior + " Is matched with: " + rList.getRes(resItteratior).match[0]);
         }
     
 
