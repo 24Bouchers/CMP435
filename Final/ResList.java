@@ -20,51 +20,52 @@ public class ResList {
         }
     }
 
-    public void Remove(int id){
+    public void Remove(int id) {
         Res res = head;
-        while (res.id != id){
+        while (res.id != id) {
             res = res.next;
         }
         res.match[0] = -1;
         res.prefs.remove(0);
     }
 
-    public void DESTROY(int hosId){
+
+    public void DESTROY(int resId, int hosId) {
         Res res = head;
-        while (res.next != null){
-            for(int i = 0; i < res.prefs.size(); i++){
-                if(res.prefs.get(i) == hosId){
-                    res.prefs.remove(i);
-                }
-            }
+        while (res.id != resId) {
             res = res.next;
+        }
+        for (int i = 0; i < res.prefs.size(); i++) {
+            if (res.prefs.get(i) == hosId) {
+                res.prefs.remove(i);
+            }
         }
     }
 
-    public Res getRes(int id){
+    public Res getRes(int id) {
         Res res = head;
-        while (res.id != id){
+        while (res.id != id) {
             res = res.next;
         }
         return res;
     }
 
-    public void Init(Boolean debug){
+    public void Init(Boolean debug) {
         Res res = head;
         if (res != null) {
 
             while (res.next != null) {
                 res.match = new int[1];
                 res.match[0] = -1;
-                if(debug){
-                System.out.println("Resident Matches Initialized");
+                if (debug) {
+                    System.out.println("Resident Matches Initialized");
                 }
                 res = res.next;
             }
             res.match = new int[1];
             res.match[0] = -1;
-            if(debug){
-            System.out.println("Resident Matches Initialized");
+            if (debug) {
+                System.out.println("Resident Matches Initialized");
             }
         }
     }
@@ -88,14 +89,14 @@ public class ResList {
                 System.out.println("r" + res.id + ": ");
                 for (Integer i : res.prefs) {
                     System.out.print(i + ", ");
-                  }
+                }
                 res = res.next;
             }
             System.out.println();
             System.out.println("r" + res.id + ": ");
-                for (Integer i : res.prefs) {
-                    System.out.print(i + ", ");
-                  }
+            for (Integer i : res.prefs) {
+                System.out.print(i + ", ");
+            }
 
         }
 
@@ -114,11 +115,12 @@ public class ResList {
 
         }
     }
-/*
-    public Res select(){
 
-    }
-*/
+    /*
+     * public Res select(){
+     * 
+     * }
+     */
     public int Index() {
         int length = 1;
         Res res = head;

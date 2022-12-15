@@ -11,7 +11,7 @@ public class Main {
     }
 
     public static void FileReader() throws FileNotFoundException {
-        boolean debug = true;
+        boolean debug = false;
         String textCommand = "";
         int resCounter = 0;
         int HosCounter = 0;
@@ -132,7 +132,7 @@ public class Main {
             }
         }
 
-        // inputTest(rList, hList);
+        inputTest(rList, hList);
         rList.Init(debug);
         sc1.close();
         sc2.close();
@@ -148,24 +148,28 @@ public class Main {
             }
             // If There is no room and in the hospital that is r's perfed List, and it is
             // unmatched
-            if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(0)) >= 0 && rList.getRes(resItteratior).match[0] == -1) {
+            if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(0)) >= 0
+                    && rList.getRes(resItteratior).match[0] == -1) {
                 resItteratior = hList.Replace(rList.getRes(resItteratior).prefs.get(0), resItteratior, rList);
             }
             resItteratior++;
-
-
+            System.out.println(resItteratior);
+            
         }
+        //Last One 
         if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(0)) > 0) {
             rList.getRes(resItteratior).match[0] = rList.getRes(resItteratior).prefs.get(0);
             hList.match(rList.getRes(resItteratior).prefs.get(0), resItteratior);
         }
         if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(0)) >= 0
                 && rList.getRes(resItteratior).match[0] == -1) {
-            hList.Replace(rList.getRes(resItteratior).prefs.get(0), resItteratior, rList);
-            resItteratior = 0;
+            resItteratior = hList.Replace(rList.getRes(resItteratior).prefs.get(0), resItteratior, rList);
         }
         resItteratior = 1;
 
+
+
+        //Print Statements
         while (rList.getRes(resItteratior).next != null) {
             System.out.println("R" + resItteratior + " Is matched with: " + rList.getRes(resItteratior).match[0]);
             resItteratior++;

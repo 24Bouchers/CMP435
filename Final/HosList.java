@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class HosList {
     Hos head;
 
@@ -8,6 +9,8 @@ public class HosList {
         hos.id = id;
         hos.prefs = new ArrayList<Integer>();
         hos.next = null;
+
+
 
         if (head == null) {
             head = hos;
@@ -78,39 +81,35 @@ public class HosList {
 
     public int Replace(int hosId, int resId, ResList rList) {
         Hos hos = head;
-        int callback = 0;
-        System.out.println("Resident: " + resId);
-        System.out.println("hospital: " + hosId);
-        System.out.println("Current Res Match: " + "r"+ resId +": " + rList.getRes(resId).match[0]);
-        System.out.println("Current Pref: " + rList.getRes(resId).prefs.get(0));
         while (hos.id != hosId) {
             hos = hos.next;
         }
-        for (int i = (hos.prefs.size() - 1); i > 0; i--) {
-            for (int j = 0; j < hos.matches.length; j++) {
-                if (hos.prefs.get(i) == hos.matches[j]) {
-                    System.out.println("Found the worst! Its " + hos.matches[j]);
-                    rList.getRes(hos.matches[j]).match[0] = -1;
-                    hos.matches[j] = resId;
+        int callBack =0;
+
+        for(int i = hos.prefs.size() - 1; i > 0; i--){
+            for(int j = 0; j < hos.matches.length;){
+                if(hos.prefs.get(i) == hos.matches[j]){
+                 /* System.out.println("Found it");
+                    System.out.println(hos.matches[j]);
+                    System.out.println("size" + hos.prefs.size());
+                    */
+                    rList.getRes(hos.prefs.get(i)).match[0] = -1;
                     rList.getRes(resId).match[0] = hosId;
-                    for (int l = 0; l < rList.getRes(hosId).prefs.size(); l++) {
-                        if (rList.getRes(hosId).prefs.get(l) == hosId) {
-                            rList.getRes(hosId).prefs.remove(l);
-                        }
-                    }
-                    
-                    rList.DESTROY(hosId);
+                    rList.DESTROY(hos.matches[j], hosId);
+                    hos.prefs.add(resId);
+                    System.out.println(rList.getRes(resId).match[0] = hosId);
+                    callBack = rList.getRes(hos.prefs.get(i)).id;
                     i = 0;
-                    callback = hos.matches[j];
+                    
+                    
+
                 }
+                j++;
             }
-        
+            
         }
-        System.out.println("matches");
-        for(int y = 0; y < hos.matches.length; y++){
-            System.out.println(hos.matches[y]);
-        }
-        return callback;
+        return rList.getRes(hos.prefs.get(callBack)).id;
+
     }
 
     public void PrefInsert(int hosId, Integer resId) {
