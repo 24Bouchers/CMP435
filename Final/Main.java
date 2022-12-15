@@ -153,7 +153,6 @@ public class Main {
                 resItteratior = hList.Replace(rList.getRes(resItteratior).prefs.get(0), resItteratior, rList);
             }
             resItteratior++;
-            System.out.println(resItteratior);
             
         }
         //Last One 

@@ -37,6 +37,7 @@ public class ResList {
         }
         for (int i = 0; i < res.prefs.size(); i++) {
             if (res.prefs.get(i) == hosId) {
+                System.out.println("Deleting" + res.prefs.get(i) + "from "+ resId);
                 res.prefs.remove(i);
             }
         }
