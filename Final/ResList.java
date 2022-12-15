@@ -20,6 +20,27 @@ public class ResList {
         }
     }
 
+    public void Remove(int id){
+        Res res = head;
+        while (res.id != id){
+            res = res.next;
+        }
+        res.match[0] = -1;
+        res.prefs.remove(0);
+    }
+
+    public void DESTROY(int hosId){
+        Res res = head;
+        while (res.next != null){
+            for(int i = 0; i < res.prefs.size(); i++){
+                if(res.prefs.get(i) == hosId){
+                    res.prefs.remove(i);
+                }
+            }
+            res = res.next;
+        }
+    }
+
     public Res getRes(int id){
         Res res = head;
         while (res.id != id){

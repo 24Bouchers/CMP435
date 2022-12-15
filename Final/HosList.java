@@ -8,7 +8,7 @@ public class HosList {
         hos.id = id;
         hos.prefs = new ArrayList<Integer>();
         hos.next = null;
-        
+
         if (head == null) {
             head = hos;
         } else {
@@ -28,27 +28,27 @@ public class HosList {
         return hos;
     }
 
-    public int checkSpace(int id){
+    public int checkSpace(int id) {
         Hos hos = head;
         int openSpaces = 0;
         while (hos.id != id) {
             hos = hos.next;
         }
-        for(int i = 0; i < hos.matches.length; i++){
-            if(hos.matches[i] == -1){
-                openSpaces ++;
+        for (int i = 0; i < hos.matches.length; i++) {
+            if (hos.matches[i] == -1) {
+                openSpaces++;
             }
         }
         return openSpaces;
     }
 
-    public void match(int hosId, int resId){
+    public void match(int hosId, int resId) {
         Hos hos = head;
         while (hos.id != hosId) {
             hos = hos.next;
         }
-        for(int i = 0; i < hos.matches.length; i++){
-            if(hos.matches[i] == -1){
+        for (int i = 0; i < hos.matches.length; i++) {
+            if (hos.matches[i] == -1) {
                 hos.matches[i] = resId;
                 i = hos.matches.length;
             }
@@ -64,7 +64,7 @@ public class HosList {
 
             }
             hos.matches = new int[size];
-            if(debug){
+            if (debug) {
                 System.out.println("Size: " + size);
             }
             for (int i = 0; i < hos.matches.length; i++) {
@@ -74,6 +74,43 @@ public class HosList {
                 System.out.println("Hospital " + hosId + " Initialized");
             }
         }
+    }
+
+    public int Replace(int hosId, int resId, ResList rList) {
+        Hos hos = head;
+        int callback = 0;
+        System.out.println("Resident: " + resId);
+        System.out.println("hospital: " + hosId);
+        System.out.println("Current Res Match: " + "r"+ resId +": " + rList.getRes(resId).match[0]);
+        System.out.println("Current Pref: " + rList.getRes(resId).prefs.get(0));
+        while (hos.id != hosId) {
+            hos = hos.next;
+        }
+        for (int i = (hos.prefs.size() - 1); i > 0; i--) {
+            for (int j = 0; j < hos.matches.length; j++) {
+                if (hos.prefs.get(i) == hos.matches[j]) {
+                    System.out.println("Found the worst! Its " + hos.matches[j]);
+                    rList.getRes(hos.matches[j]).match[0] = -1;
+                    hos.matches[j] = resId;
+                    rList.getRes(resId).match[0] = hosId;
+                    for (int l = 0; l < rList.getRes(hosId).prefs.size(); l++) {
+                        if (rList.getRes(hosId).prefs.get(l) == hosId) {
+                            rList.getRes(hosId).prefs.remove(l);
+                        }
+                    }
+                    
+                    rList.DESTROY(hosId);
+                    i = 0;
+                    callback = hos.matches[j];
+                }
+            }
+        
+        }
+        System.out.println("matches");
+        for(int y = 0; y < hos.matches.length; y++){
+            System.out.println(hos.matches[y]);
+        }
+        return callback;
     }
 
     public void PrefInsert(int hosId, Integer resId) {
