@@ -5,5 +5,5 @@ public class Hos {
     ArrayList<Integer> prefs;
     int[] matches;
     Hos next;
-    
+
 }

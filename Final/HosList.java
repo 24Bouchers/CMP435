@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class HosList {
     Hos head;
 
@@ -9,8 +8,6 @@ public class HosList {
         hos.id = id;
         hos.prefs = new ArrayList<Integer>();
         hos.next = null;
-
-
 
         if (head == null) {
             head = hos;
@@ -84,29 +81,22 @@ public class HosList {
         while (hos.id != hosId) {
             hos = hos.next;
         }
-        int callBack =0;
+        int callBack = 0;
 
-        for(int i = hos.prefs.size() - 1; i > 0; i--){
-            for(int j = 0; j < hos.matches.length;){
-                if(hos.prefs.get(i) == hos.matches[j]){
-                 /* System.out.println("Found it");
-                    System.out.println(hos.matches[j]);
-                    System.out.println("size" + hos.prefs.size());
-                    */
+        for (int i = hos.prefs.size() - 1; i > 0; i--) {
+            for (int j = 0; j < hos.matches.length;) {
+                if (hos.prefs.get(i) == hos.matches[j]) {
                     rList.getRes(hos.prefs.get(i)).match[0] = -1;
                     rList.getRes(resId).match[0] = hosId;
                     rList.DESTROY(hos.matches[j], hosId);
                     hos.prefs.add(resId);
-                    System.out.println(rList.getRes(resId).match[0] = hosId);
                     callBack = rList.getRes(hos.prefs.get(i)).id;
                     i = 0;
-                    
-                    
 
                 }
                 j++;
             }
-            
+
         }
         return rList.getRes(hos.prefs.get(callBack)).id;
 

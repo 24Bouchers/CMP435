@@ -29,7 +29,6 @@ public class ResList {
         res.prefs.remove(0);
     }
 
-
     public void DESTROY(int resId, int hosId) {
         Res res = head;
         while (res.id != resId) {
@@ -37,7 +36,6 @@ public class ResList {
         }
         for (int i = 0; i < res.prefs.size(); i++) {
             if (res.prefs.get(i) == hosId) {
-                System.out.println("Deleting" + res.prefs.get(i) + "from "+ resId);
                 res.prefs.remove(i);
             }
         }
@@ -117,11 +115,6 @@ public class ResList {
         }
     }
 
-    /*
-     * public Res select(){
-     * 
-     * }
-     */
     public int Index() {
         int length = 1;
         Res res = head;
