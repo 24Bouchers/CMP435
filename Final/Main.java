@@ -28,12 +28,10 @@ public class Main {
             int id = 0;
             String stringCounter = " ";
             if (textCommand.charAt(0) == 'r') {
-
                 while (textCommand.charAt(charCounter) != ':') {
                     stringCounter = stringCounter + textCommand.charAt(charCounter);
                     charCounter++;
                 }
-
                 id = Integer.parseInt(stringCounter.trim());
                 // itest(id);
                 rList.insert(id);

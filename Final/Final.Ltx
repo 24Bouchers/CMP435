@@ -1,0 +1,75 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Lab 5}
+\author{Steve Boucher}
+
+\begin{document}
+\maketitle{Bags and Graphs}
+
+
+
+\section{Introduction}
+The goal of the final was to come up with our own solution to the hospital and residents situation in which an algorithm is designed to pair each resident to a hospital with X spaces. Each pair must be in a stable relationship, meaning that no hospital and no resident would prefer to make a pairing over their current. Two versions of this issue were required for this lab, One where the Hospitals rank the residents and the second scenario they do not.
+
+\section{File Reading}
+I employed a similar strategy to read the data on a text file as I did in lab 5. This was done by abusing the function.
+\begin{verbatim}
+String.charAt(int);
+\end{verbatim}
+to where I could check the first line of a command for a specific letter and assume what the first letter means to the rest of the command. If it was an r, then  I was adding a resident and if it was an H, I was adding a hospital. I ended up running through the text file a total of two times for each part. The first run-through was to set up residents and hospitals, and the second pass-through was to fill in the preferences and hospital capacity.
+
+\begin{verbatim}
+25        while (sc1.hasNextLine()) {
+26            textCommand = sc1.nextLine();
+27            int charCounter = 1;
+28            int id = 0;
+29            String stringCounter = " ";
+30            if (textCommand.charAt(0) == 'r') {
+31
+32                while (textCommand.charAt(charCounter) != ':') {
+31                    stringCounter = stringCounter 
+                    + textCommand.charAt(charCounter);
+32                    charCounter++;
+33                }
+34
+35                id = Integer.parseInt(stringCounter.trim());
+36                // itest(id);
+37                rList.insert(id);
+38            }
+{\end{verbatim}
+In the code above. I have displayed a snippet of code used for adding a resident to the list. I find the first character is an r or resident, then find the first digit and tell it that that will be its id.
+
+
+\section{Part 1}
+
+The solution I used to the problem was based on the pseudo-code given in the slide deck. 
+\begin{verbatim}
+332            while (rList.getRes(resItteratior).match[0] == -1) {
+333                while (hList.checkSpace(rList.getRes(resItteratior).prefs.get(prefCounter)) == 0) {
+334                    prefCounter++;
+335                }
+336                if (hList.checkSpace(rList.getRes(resItteratior).prefs.get(prefCounter)) >= 0
+                        && rList.getRes(resItteratior).match[0] == -1) {
+338                    rList.getRes(resItteratior).match[0] =           rList.getRes(resItteratior).prefs.get(prefCounter);
+339                    hList.match(rList.getRes(resItteratior).prefs
+                        .get(prefCounter), resItteratior);
+340                }
+{\end{verbatim}
+\section{Conclusion}
+I'm very proud of the work I did on this final project. I would have liked to figure out a more concrete/reliable solution but was very pleased with how far I was able to get on my own. The problem was definitely challenging, but I don't think it has been as bad as some of our labs. Thank you so much professor for an amazing semester
+
+
+\end{document}

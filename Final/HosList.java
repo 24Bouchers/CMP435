@@ -99,7 +99,6 @@ public class HosList {
 
         }
         return rList.getRes(hos.prefs.get(callBack)).id;
-
     }
 
     public void PrefInsert(int hosId, Integer resId) {
